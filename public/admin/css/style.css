@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+}
+
+#container {
+    width: 700px;
+    margin: 20px auto;
+}
+
+input {
+    padding: 10px;
+}
+
+form a {
+    width: 100%;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: darkblue;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: rgba(42, 42, 187, 0.692);
+}
+
+#main-nav, #main-nav2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+.content-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgb(0,0,0,0.15);
+}
+
+.content-table thead tr{
+    background-color: #009879;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td{
+    padding:12px 15px;
+}
+
+.content-table tbody tr{ 
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:hover{
+    color: #009879;
+}
+
+.content-table tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type{
+    border-bottom: 2px solid #009879;
+}
+
+.blog-container{
+    display: flex;
+    justify-content: center;
+ }
+
+ #container-form {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#title-textarea,
+#author-textarea,
+#content-textarea,
+#tags-textarea,
+#price-textarea{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    resize: none;
+    height: 50px;
+    background-color: #dddddd;
+    color: #666666;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    }
+
+#title-textarea:focus{
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
+}
+
+#author-textarea:focus{
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
+}
+
+#content-textarea:focus{
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
+}
+
+#tags-textarea:focus{
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
+}
+
+#price-textarea:focus{
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
+}
+
+
+.button{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 190px;
+    padding: 10px;
+    width: 50%;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 1.25rem;
+    background-color: #000;
+    color: white;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+
+.big-button{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 180px;
+    padding: 10px;
+    width: 50%;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 1.25rem;
+    background-color: #000;
+    color: white;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+
+}
+
+.button:after, .button:before{
+    content: "";
+    opacity: 0.3;
+    background: black;
+    border-radius: inherit;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.big-button:after, .big-button:before{
+    content: "";
+    opacity: 0.3;
+    background: black;
+    border-radius: inherit;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+
+.button:hover{
+    transform: translate(-12px,-12px) ;
+}
+
+.big-button:hover{
+    transform: translate(-12px,-12px) ;
+}
+
+#content-textarea{
+    height: 160px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #dddddd;
+}
+
+.content-table{
+    width: 700px;
+}
