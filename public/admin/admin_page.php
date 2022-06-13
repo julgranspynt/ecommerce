@@ -49,6 +49,7 @@ $products = $stmt->fetchAll();
     <thead>
          
         <tr>
+            <th>Image</th>
             <th>Title</th>
             <th>Description</th>
             <th>Price</th>
@@ -64,6 +65,7 @@ $products = $stmt->fetchAll();
           
           <?php foreach($products as $product) : ?>
                         <tr>
+                            <td><img src="<?=$product['img_url']?>"height="100" width="100"></td>
                             <td><?=htmlentities($product['title']) ?></td>
                             <td><?=htmlentities($product['description']) ?></td>
                             <td><?=htmlentities($product['price']) ?></td>

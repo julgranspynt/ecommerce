@@ -215,3 +215,7 @@ select {
 .content-table{
     width: 700px;
 }
+
+.img {
+    border-radius: 50%;
+  }

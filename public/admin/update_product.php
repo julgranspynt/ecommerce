@@ -12,6 +12,30 @@ if (isset($_POST['updateBtn'])) {
     $description    = trim($_POST['description']);
     $price          = trim($_POST['price']);
     $stock          = trim($_POST['stock']);
+
+
+    if (is_uploaded_file($_FILES['uploadedFile']['tmp_name'])) {
+            
+        $fileName 	    = $_FILES['uploadedFile']['name'];
+        $fileType 	    = $_FILES['uploadedFile']['type'];
+        $fileTempPath   = $_FILES['uploadedFile']['tmp_name'];
+        $path 		    = "uploads/";
+        $newFilePath = $path . $fileName; 
+
+            $allowedFileTypes = [
+                'image/png',
+                'image/jpeg',
+                'image/gif',
+                'image/jpg',
+            ];
+            
+            $isFileTypeAllowed = array_search($fileType, $allowedFileTypes, true);
+            if ($isFileTypeAllowed === false) {
+               echo $error = "The file type is invalid. Allowed types are jpeg, png, gif. <br>";
+            }    
+            
+
+        }
     
     
     // Validering om formulär fylls i
@@ -32,10 +56,13 @@ if(empty($_POST['stock'])){
     echo "<p>Du måste fylla i stock!</p>";
 }
 
-else{
+else if(empty($error)){
+    
+    $isTheFileUploaded = move_uploaded_file($fileTempPath, $newFilePath);
+   
     $sql = "
             UPDATE products
-            SET title = :title, description = :description, price = :price, stock =:stock
+            SET title = :title, description = :description, price = :price, stock =:stock, img_url= :uploadedFile
             WHERE id = :id
         ";
 
@@ -45,6 +72,7 @@ else{
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':stock', $stock);
+        $stmt->bindParam(':uploadedFile', $newFilePath);
         $stmt->execute();
 
         echo "<p>Sucsess!</p>";
@@ -81,9 +109,16 @@ $product = $stmt->fetch();
     
         <div id="container-form">
 
-        <form id="create-blog-form" method="POST" action="#">
+        <form id="create-blog-form" method="POST" action="#" enctype="multipart/form-data">
             
         <fieldset>
+
+        <div>
+            <img src="<?=$product['img_url']?>"height="200" width="350">
+        </div>
+            
+            <br>
+            
             <label for="">Title:</label>
             <input type="text" name="title" id="title-textarea" value= "<?=htmlentities($product['title']) ?>" maxlength="50">
 
@@ -95,6 +130,9 @@ $product = $stmt->fetch();
             
             <label for="">Stock:</label>
             <input type="text" name="stock" id="author-textarea" value= "<?=htmlentities($product['stock']) ?>" maxlength="50">
+
+            <label>Photo:</label> 
+		    <input type="file" name="uploadedFile" value= "<?=htmlentities($product['img_url']) ?>">
 
             <input class= "button" name= "updateBtn" type="submit" value="Update">
             <a href="admin_page.php">&#x2190; back</a>

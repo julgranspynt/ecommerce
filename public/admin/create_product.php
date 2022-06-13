@@ -10,6 +10,9 @@ require('C:\MAMP\htdocs\ecommerce\src\dbconnect.php');
     $description = "";
     $price    = "";
     $stock    = "";
+    $imgUrl   = "";
+    $error    = "";
+    $messages = "";
 
     
     if (isset($_POST['createBtn'])) {
@@ -17,10 +20,31 @@ require('C:\MAMP\htdocs\ecommerce\src\dbconnect.php');
         $description    = trim($_POST['description']);
         $price          = trim($_POST['price']);
         $stock          = trim($_POST['stock']);
-      
 
+// Ladda upp bild + validering 
+
+    if (is_uploaded_file($_FILES['uploadedFile']['tmp_name'])) {
             
-        
+        $fileName 	    = $_FILES['uploadedFile']['name'];
+        $fileType 	    = $_FILES['uploadedFile']['type'];
+        $fileTempPath   = $_FILES['uploadedFile']['tmp_name'];
+        $path 		    = "uploads/";
+        $newFilePath = $path . $fileName; 
+
+            $allowedFileTypes = [
+                'image/png',
+                'image/jpeg',
+                'image/gif',
+                'image/jpg',
+            ];
+            
+            $isFileTypeAllowed = array_search($fileType, $allowedFileTypes, true);
+            if ($isFileTypeAllowed === false) {
+               echo $error = "The file type is invalid. Allowed types are jpeg, png, gif. <br>";
+            }    
+            
+
+        }
         
         // Validering om formulär fylls i
     
@@ -40,13 +64,14 @@ require('C:\MAMP\htdocs\ecommerce\src\dbconnect.php');
         echo "<p>Du måste fylla i lagersaldo!</p>";
     }
 
-    else{
+    else if(empty($error)){
+        $isTheFileUploaded = move_uploaded_file($fileTempPath, $newFilePath);
 
         global $pdo;
         
         $sql = "
-                INSERT INTO products (title, description, price, stock)
-                VALUES (:title, :description, :price, :stock);
+                INSERT INTO products (title, description, price, stock,img_url)
+                VALUES (:title, :description, :price, :stock,:uploadedFile);
             ";
 
 
@@ -55,13 +80,15 @@ require('C:\MAMP\htdocs\ecommerce\src\dbconnect.php');
             $stmt->bindParam(':description', $description);
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':stock', $stock);
+            $stmt->bindParam(':uploadedFile', $newFilePath);
             $stmt->execute();
 
-            echo "<p>Sucsess</p>";
+            echo "<p>Sucsess!</p>";
 
     }
     
 }
+
 ?>
 
 <html lang="en">
@@ -81,7 +108,7 @@ require('C:\MAMP\htdocs\ecommerce\src\dbconnect.php');
     
         <div id="container-form">
 
-        <form id="create-blog-form" method="POST" action="">
+        <form id="create-blog-form" method="POST" action="" enctype="multipart/form-data">
             
        <fieldset>
             
@@ -98,8 +125,12 @@ require('C:\MAMP\htdocs\ecommerce\src\dbconnect.php');
             <label for="input4">Stock:</label>
             <input type="text" name="stock" id="author-textarea" placeholder= "Enter stock"maxlength="50">
 
+            <label>Photo:</label> 
+		    <input type="file" name="uploadedFile">
+
 
             <input class= "button" name= "createBtn" type="submit" value="Create">
+
             <a href="admin_page.php">&#x2190; back</a>
 
         </fieldset>
