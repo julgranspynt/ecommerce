@@ -1,5 +1,5 @@
 <?php
- require('../src/dbconnect.php');
+ require('../../src/dbconnect.php');
  session_start();
 
   $message = "";
