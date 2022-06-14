@@ -1,0 +1,56 @@
+/* Hover links */
+a:visited,a:link {
+    color: 2b2b2b;
+    text-decoration: none;
+  }
+  a:hover{
+      color: pink;
+  }
+
+  .fa:hover{
+    color: pink;
+}
+
+#kiano:hover{
+    color: pink;
+}
+
+/*Style*/
+
+.header-column{
+    background-color: beige;
+}
+.logo-img{
+   padding-left: 500px;
+
+}
+
+.header{
+    text-align: right;
+}
+
+.header a{
+    margin-right: 15px;
+}
+
+.fa{
+    color: 2b2b2b;
+    margin-left: 50px;
+} 
+
+/* .fa-light fa-cart-shopping{
+    color: 2b2b2b;
+
+}
+ */
+#kiano{
+    text-align: center;
+    font-size: 40px;
+    color: 2b2b2b;
+}
+
+#footer{
+    color: 2b2b2b;
+    text-align: center;
+    margin-top: 20px;
+}
