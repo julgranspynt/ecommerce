@@ -1,6 +1,6 @@
 <?php
 	$pageTitle = "Login";
-	require('../src/config.php');
+	require('../src/dbconnect.php');
 
     // echo "<pre>";
     // print_r($_POST);

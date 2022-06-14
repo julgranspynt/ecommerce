@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require('C:\MAMP\htdocs\ecommerce\src\dbconnect.php');
+require('../../src/dbconnect.php');
 
 
     $title  = "";
