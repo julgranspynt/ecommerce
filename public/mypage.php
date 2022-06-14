@@ -1,5 +1,5 @@
 <?php
-    require('../src/dbconnect.php');
+    require('../src/config.php');
     $pageTitle = "My Page";
 
 
@@ -8,6 +8,8 @@
      
 
     if (!isset($_SESSION['id'])) {
+        print_r($_SESSION);
+        exit;
         header('Location: login.php?mustLogin');
     }
 

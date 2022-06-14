@@ -26,7 +26,7 @@
 
          <?=$message ?>
 
-         <form action="#" method="GET">
+         <form action="../newuser.php" method="POST">
             	<input type="submit" value="Create a new user">
             </form>
 
