@@ -237,8 +237,7 @@
     $state->bindParam(':id', $_SESSION['id']);
     $state->execute();
     $user = $state->fetch();
-?>
-   
+?>  
 
 
 <h2>Welcome to your page <?=$user['first_name']?> <?=$user['last_name']?>!</h2>
