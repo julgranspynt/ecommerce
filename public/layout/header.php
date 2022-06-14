@@ -9,7 +9,7 @@ require('../src/dbconnect.php');
       <div class="header">
         <a href="./mypage.php">My page</a>
         <!-- <a href="#"><i class="fa-light fa-cart-shopping" style="font-size:24px">&#xf07a;</i></a> -->
-        <a href="../logout.php">Log out</a>
+        <a href="./logout.php">Log out</a>
         <a href="#"><i class="fa" style="font-size:22px">&#xf07a;</i></a>
         <a href="#">🔍 </a>
       </div>
