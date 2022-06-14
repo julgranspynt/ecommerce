@@ -110,7 +110,7 @@
 
 
 ?>
-                            
+    <?php include('layout/header.php'); ?>                        
 
     <h2>Go to Login </h2>
     <form action="login.php" method="POST">
@@ -191,3 +191,4 @@
         </article>
     </div>
 
+<?php include('./layout/footer.php'); ?>

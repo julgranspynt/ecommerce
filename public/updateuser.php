@@ -59,6 +59,7 @@
 
 
 ?>
+<?php include('./layout/header.php'); ?>
 <?php ?>
         <article class="border">
             <form method="POST" action="#">
@@ -129,3 +130,4 @@
 
 <?php ?>
         
+<?php include('./layout/footer.php'); ?>
