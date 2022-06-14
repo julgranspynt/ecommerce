@@ -33,7 +33,7 @@ $products = $stmt->fetchAll();
 
 					<div id="img-container">
 						<a href="product.php?id=<?=htmlentities($product['id']) ?>">
-							<img class="prods "src="img/product_images/<?=htmlentities($product['img_url']) ?>" width=200">
+							<img class="prods "src="./admin/<?=htmlentities($product['img_url']) ?>" width=200">
 						</a>
 					</div>
 					<p>

@@ -39,7 +39,7 @@ $product = $stmt->fetch();
             
         <div class="content-left">
 
-            <img src="img/product_images/<?=htmlentities($product['img_url']) ?>" class="product-image">
+            <img src="./admin/<?=htmlentities($product['img_url']) ?>" class="product-image">
         
         </div>
         
