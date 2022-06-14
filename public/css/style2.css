@@ -1,0 +1,134 @@
+/* Universal styling */
+* {
+    box-sizing: border-box;
+    list-style-type: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+body {
+    background-color: #f2f2f2;
+    color: rgb(69, 65, 72);
+    padding: 10px;
+    height: 100%;
+}
+
+/* header & footer */
+header,
+footer {
+    text-align: center;
+}
+
+/* index or landing page */
+.hero-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.gfg {
+    filter: blur(2px);
+    width: 100%;
+    height: 600px;
+}
+
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Products page */
+ul#list-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+#list-group-item {
+    border: 1px solid rgba(61, 51, 51, 0.8);
+    margin-bottom: 20px;
+    margin-right: 20px;
+    float: left;
+    text-align: center;
+    width: 400px;
+    height: 450px;
+}
+
+li #img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+}
+
+img.prods:hover {
+    opacity: 0.5;
+    transition: .5s ease;
+}
+
+/* Product details page */
+.container {
+    position: relative;
+    width: 770px;
+    height: 620px;
+    margin: 90px auto;
+    padding: 1px;
+}
+
+#backBtn {
+    text-align: right;
+    margin-top: 10px;
+}
+
+a.backButton {
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border: 0.2px solid #333333;
+    border-radius: 3px;
+}
+
+span {
+    line-height: 1.2em;
+    font-size: 1.05em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content {
+    margin: 20px 0;
+    padding: 35px 0px 0px 55px;
+}
+
+.content-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    float: left;
+    margin-right: 5%;
+}
+
+.product-image {
+    height: 400px;
+}
+
+.content-right {
+    width: 37%;
+    float: left;
+}
+
+/* footer */
+.cont {
+    width: 100%;
+}
+
+.column {
+    float: left;
+    width: 33%;
+    height: 300px;
