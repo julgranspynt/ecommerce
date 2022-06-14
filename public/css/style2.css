@@ -12,12 +12,6 @@ body {
     height: 100%;
 }
 
-/* header & footer */
-header,
-footer {
-    text-align: center;
-}
-
 /* index or landing page */
 .hero-container {
     position: relative;
@@ -122,13 +116,3 @@ span {
     width: 37%;
     float: left;
 }
-
-/* footer */
-.cont {
-    width: 100%;
-}
-
-.column {
-    float: left;
-    width: 33%;
-    height: 300px;
