@@ -1,5 +1,5 @@
 <?php
-        require('../src/config.php');
+        require('../src/dbconnect.php');
         $pageTitle = "Update User";
 
         echo "<pre>";

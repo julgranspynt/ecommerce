@@ -1,5 +1,5 @@
 <?php
-    require('../src/dbconnect.php');
+    require('../../src/dbconnect.php');
     echo "<pre>";
     print_r($_POST);
     echo "</pre>";
