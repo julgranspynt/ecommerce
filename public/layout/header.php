@@ -1,5 +1,5 @@
 <?
-require('../../src/dbconnect.php');
+require('../src/dbconnect.php');
 ?>
 <link rel="stylesheet" href="../css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@ require('../../src/dbconnect.php');
       </div>
         <!-- <a href="#"> <h1 id="kiano">K I A N O</h1></a> -->
         <div class="logo-img" >
-        <a href="../products.php"> <img src="../img/LOGOwithoutcircle.png" alt="" width ="350px" height="200px"></a>
+        <a href="../products.php"> <img src="./img/LOGOwithoutcircle.png" alt="" width ="350px" height="200px"></a>
 </div>
 </div>
     </nav>

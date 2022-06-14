@@ -1,5 +1,5 @@
 <?php
-require('../src/dbconnect.php');
+require('../src/config.php');
 
 $_SESSION = [];
 session_destroy();
