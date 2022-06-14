@@ -15,10 +15,11 @@
 		
 
 		<div class="hero-container">
-			<img class="gfg" src="https://cdn.mos.cms.futurecdn.net/vsEypm3JWGtFyX4wT228n-1200-80.jpg">
+		<img src="img/Hero.png" alt="Fruits and smootie" width="1500px">
+			<!-- <img src="https://cdn.mos.cms.futurecdn.net/vsEypm3JWGtFyX4wT228n-1200-80.jpg"> -->
 			<div class="hero-text">
-				<h1>Fruits & Veggies</h1>
-				<p>- the easy way everyday</p>
+				<!-- <h1>Fruits & Veggies</h1>
+				<p>- the easy way everyday</p> -->
 			</div>
 		</div>
 
