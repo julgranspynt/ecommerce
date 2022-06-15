@@ -72,3 +72,9 @@ ion-icon {
     text-align: end;
   }
 
+  table, th, td {
+    width: 600;
+    border: 1px solid white;
+    background-color: beige;
+  }
+
