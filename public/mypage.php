@@ -237,7 +237,7 @@
     $state->bindParam(':id', $_SESSION['id']);
     $state->execute();
     $user = $state->fetch();
-?>
+?>  
 
 
 <h2>Welcome to your page <?=$user['first_name']?> <?=$user['last_name']?>!</h2>
@@ -281,7 +281,7 @@
                     </div>
                 </form>
 
-                <div>
+            <div>
                 <form action="" method="POST">
                     <div>
                         <label for="phone">Phone:</label><br>
@@ -353,7 +353,8 @@
                      $deletemessage;
                 </p> ";
             }; -->
-
+        
+<?php include('./layout/footer.php'); ?>
 
 
             

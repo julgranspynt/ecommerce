@@ -52,6 +52,7 @@
 
 ?>
 
+<?php include('./layout/header.php'); ?>
 
 <h2>Login</h2>
 
@@ -70,4 +71,4 @@
     <input type="submit" name="newUser" value="Register">
 </form>
 
-
+<?php include('./layout/footer.php'); ?>
