@@ -131,7 +131,7 @@ require('../../src/config.php');
 
             <input class= "button" name= "createBtn" type="submit" value="Create">
 
-            <a href="admin_page.php">&#x2190; back</a>
+            <a href="admin-products.php">&#x2190; back</a>
 
         </fieldset>
         </form>

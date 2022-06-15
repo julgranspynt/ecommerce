@@ -37,7 +37,7 @@ $products = $stmt->fetchAll();
         <h1>Admin</h1>
 
         <nav id="main-nav">
-            <a href="create_product.php">Create new product</a>
+            <a href="create-product.php">Create new product</a>
         </nav>
 
         <nav id="main-nav2">
@@ -72,7 +72,7 @@ $products = $stmt->fetchAll();
                             <td><?=htmlentities($product['stock']) ?></td>
                             <td><?=htmlentities($product['id']) ?></td>
                             <td>
-                                <form action="update_product.php" method="GET">
+                                <form action="update-product.php" method="GET">
                                     <input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
                                     <input type="submit" value="Updatera">
                                 </form>
