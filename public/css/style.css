@@ -3,6 +3,8 @@ a:visited,a:link {
     color: 2b2b2b;
     text-decoration: none;
   }
+
+  
   a:hover{
       color: pink;
   }
@@ -20,13 +22,14 @@ a:visited,a:link {
 .header-column{
     background-color: beige;
 }
-.logo-img{
-   padding-left: 550px; 
-
-}
 
 .header{
-    text-align: right;
+    margin: auto;  
+}
+
+
+.logo-img{
+    text-align: center;
 }
 
 .header a{
@@ -63,5 +66,9 @@ ion-icon {
 
   ion-icon:hover {
     color: lightpink;
+  }
+
+  .navigation{
+    text-align: end;
   }
 
