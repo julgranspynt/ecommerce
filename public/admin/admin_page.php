@@ -41,7 +41,7 @@ $products = $stmt->fetchAll();
         </nav>
 
         <nav id="main-nav2">
-            <a href="#">Main page</a>
+            <a href="../index.php">Main page</a>
         </nav>
 
         <table class="content-table">
