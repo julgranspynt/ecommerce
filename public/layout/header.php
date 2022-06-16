@@ -1,5 +1,4 @@
 <?
-require('../src/config.php');
 ?>
 
 <link rel="stylesheet" href="css/style.css?v=<?php echo time();?>">
@@ -11,7 +10,7 @@ require('../src/config.php');
         <a href="./mypage.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>
         <a href="./logout.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>
         <a href="./cart.php"><ion-icon  name="cart-outline" class="icon"></ion-icon></i></a>
-        <a href="#"><ion-icon  name="search-outline" class="icon"></ion-icon></a>
+        <a href="./search.php"><ion-icon  name="search-outline" class="icon"></ion-icon></a>
         </div>
          <div class="logo-img">
          <a href="./index.php"><img src="./img/LOGOwithoutcircle.png" alt="" width ="350px" height="200px"></a>
