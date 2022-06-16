@@ -239,6 +239,7 @@
     $user = $state->fetch();
 ?>  
 
+<?php include('./layout/header.php'); ?>
 
 <h2>Welcome to your page <?=$user['first_name']?> <?=$user['last_name']?>!</h2>
 
