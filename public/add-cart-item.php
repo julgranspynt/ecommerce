@@ -5,9 +5,9 @@ if (!empty($_POST['quantity'])) {
     $productId  = (int) $_POST['productId'];
     $quantity   = (int) $_POST['quantity'];
 
-    echo "<pre>";
+    /* echo "<pre>";
     print_r($_POST);
-    echo "</pre>";
+    echo "</pre>"; */
 
     $sql="
         SELECT * FROM products
@@ -18,9 +18,9 @@ if (!empty($_POST['quantity'])) {
     $stmt->execute();
     $product = $stmt->fetch();
 
-    echo "<pre>";
+    /* echo "<pre>";
     print_r($product);
-    echo "</pre>";      
+    echo "</pre>";  */     
 
     if ($product) {
             echo "<pre>";
@@ -30,9 +30,9 @@ if (!empty($_POST['quantity'])) {
 
         $cartItem = [$productId => $product];
 
-        echo "<pre>";
+        /* echo "<pre>";
         print_r($cartItem);
-        echo "</pre>";   
+        echo "</pre>";  */  
         
         if (empty($_SESSION['cartItems'])) {
             echo "<pre>";
@@ -54,9 +54,9 @@ if (!empty($_POST['quantity'])) {
             
         }
 
-        echo "<pre>";
+        /* echo "<pre>";
         print_r($_SESSION['cartItems']);
-        echo "</pre>"; 
+        echo "</pre>";  */
        
 
     }
