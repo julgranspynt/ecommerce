@@ -1,5 +1,4 @@
 <?
-require('../src/config.php');
 ?>
 
 <link rel="stylesheet" href="css/style.css?v=<?php echo time();?>">
