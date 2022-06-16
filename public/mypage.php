@@ -1,7 +1,7 @@
 <?php
     require('../src/config.php');
     $pageTitle = "My Page";
-
+    include('./layout/header.php');
 
     $message="";
     $deletemessage="";
@@ -224,6 +224,7 @@
                 ';
             }
         }
+
     }
 
 
@@ -239,8 +240,12 @@
     $user = $state->fetch();
 ?>  
 
-<?php include('./layout/header.php'); ?>
 
+<?php
+	echo "<pre>";
+	print_r($user);
+	echo "</pre>"; 
+	?>
 <h2>Welcome to your page <?=$user['first_name']?> <?=$user['last_name']?>!</h2>
 
 
@@ -250,7 +255,7 @@
 
 <div>
     <h3>Our information about you.</h3>
-    <b>Firstname: </b> <?=$user['first_name']?><br> 
+    <b>Firstname: </b> <?=$user['first_name']?> <br>
     <b>Lastname: </b> <?=$user['last_name']?> <br>
     <b>E-mail: </b> <?=$user['email']?> <br>
     <b>Phone: </b> <?=$user['phone']?><br>
