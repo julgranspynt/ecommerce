@@ -25,17 +25,32 @@
 
 		<div class="some-products">
       <br>
+      <br>
 			<h2>Organic powder mixes of fruits & veggies - mix into water, plant-milk or a smoothie</h2>
 			<div class="product-div" style="height: 300px;">
 
-			<div class="product-column">Product 1</div>
-			<div class="product-column">Product 2</div>
-			<div class="product-column">Product 3</div>
-			<div class="product-column">Product 4</div>
+			<div class="product-column"><img src="img/Calmgurkmeja.png" height="350px" width="auto"></div>
+			<div class="product-column"><img src="img/Collagenkiss.png" height="350px" width="auto"></div>
+			<div class="product-column"><img src="img/Tropical.png" height="350px" width="auto"></div>
+			<div class="product-column"><img src="img/Matchapower.png" height="350px" width="auto"></div>
 				
-			</div>
-			<h3><a class="button" href="products.php">View all our products</a></h3>
 		</div>
+    <div class="text-div">
+      <div class="text-column"><b><h3>Gurkmeja Latte för<br> Immunförsvar Boost</h3></b></div>
+      <div class="text-column"><b><h3>Collagen Booster för<br> Hud, Hår & Naglar</h3></b></div>
+      <div class="text-column"><b><h3>Superfood för <br>hormonbalans</h3></b></div>
+      <div class="text-column"><b><h3>Matcha Latte för<br> Ökad Fokus och Energi</h3></b></div>
+    </div>
+ <br>
+ <br>
+ <br>
+ <br>
+
+		  <h3><a class="button" href="products.php">View all our products</a></h3>
+    
+    <br>
+    <br>
+    <br>
 <div class="gallery">
 <div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
 
