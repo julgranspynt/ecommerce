@@ -1,7 +1,3 @@
-<?
-require('../src/config.php');
-?>
-
 <link rel="stylesheet" href="css/style.css?v=<?php echo time();?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <nav>
