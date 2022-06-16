@@ -1,6 +1,9 @@
 <?php
 require('../src/config.php');
 
+	$pageTitle = "All products";
+    $pageId    = "products";
+
 //READ
 $stmt =$pdo->query("SELECT * FROM products;");
 $products = $stmt->fetchAll();
@@ -20,7 +23,6 @@ $products = $stmt->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style2.css">
-    <title>all products</title>
 </head>
 <body>
 
@@ -42,17 +44,13 @@ $products = $stmt->fetchAll();
 						<?=htmlentities($product['price']) ?> kr<br>
 						
 					</p>
-
-					<form action="#" method="GET">
-						<label for="quantity">Quantity:</label>
-						<input type="number" id="quantity" name="quantity" min="00" max="<?=htmlentities($product['stock']) ?>" value="1">
-					</form>
-
+		
 					<br>
 
-					<form action="#" method="GET">
+					<form action="add-cart-item.php" method="POST">
 						<input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-						<input type="submit" value="Add to Cart">
+						<input type="number" id="quantity" name="quantity" min="00" max="<?=htmlentities($product['stock']) ?>" value="1">
+						<input type="submit" name="addToCart" value="Add to Cart">
 					</form>
 				
 				</li>
@@ -61,6 +59,12 @@ $products = $stmt->fetchAll();
 	</main>
 
 	<?php include('./layout/footer.php'); ?>
+	
+	<?php
+	echo "<pre>";
+	print_r($_SESSION['cartItems']);
+	echo "</pre>"; 
+	?>
 
 </body>
 </html>

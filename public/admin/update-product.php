@@ -135,7 +135,7 @@ $product = $stmt->fetch();
 		    <input type="file" name="uploadedFile" value= "<?=htmlentities($product['img_url']) ?>">
 
             <input class= "button" name= "updateBtn" type="submit" value="Update">
-            <a href="admin_page.php">&#x2190; back</a>
+            <a href="admin-products.php">&#x2190; back</a>
         </fieldset>
         
         </form>

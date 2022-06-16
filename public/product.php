@@ -1,6 +1,9 @@
 <?php
 require('../src/config.php');
 
+    $pageTitle = "Product";
+    $pageId    = "products";
+
 // READ
 $sql = "
   SELECT * FROM products
@@ -25,7 +28,6 @@ $product = $stmt->fetch();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style2.css">
-    <title>Shop</title>
 </head>
 <body>
 
@@ -50,16 +52,14 @@ $product = $stmt->fetch();
             <p><span><?=htmlentities($product['description']) ?></span></p>
             <p>Stock: <?=htmlentities($product['stock']) ?></p>
             
-            <form action="#" method="GET">
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="00" max="<?=htmlentities($product['stock']) ?>" value="1">
-            </form>
 
             <p>Total price: <?php ?> kr</p>
 
-            <form action="#" method="GET">
+            <form action="add-cart-item.php" method="POST">
                 <input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-                <input type="submit" value="Add to Cart">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="00" max="<?=htmlentities($product['stock']) ?>" value="1"><br><br>
+                <input type="submit" name="addToCart" value="Add to Cart">
             </form>
 
         </div>
