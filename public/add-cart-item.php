@@ -35,20 +35,20 @@ if (!empty($_POST['quantity'])) {
         echo "</pre>";  */  
         
         if (empty($_SESSION['cartItems'])) {
-            echo "<pre>";
+            /* echo "<pre>";
             print_r('run this block if adding first item into empty cart');
-            echo "</pre>"; 
+            echo "</pre>"; */ 
             $_SESSION['cartItems'] = $cartItem;
         } else {
             if (isset($_SESSION['cartItems'][$productId])) {
-                echo "<pre>";
+                /* echo "<pre>";
                 print_r('run this block if adding items to an existing cartList with item alrdy in list');
-                echo "</pre>"; 
+                echo "</pre>";  */
                 $_SESSION['cartItems'][$productId]['quantity'] += $quantity;
             } else {
-                echo "<pre>";
+                /* echo "<pre>";
                 print_r('run this block if adding items to an existing cartList');
-                echo "</pre>"; 
+                echo "</pre>";  */
                 $_SESSION['cartItems'] += $cartItem;
             }
             

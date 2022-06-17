@@ -51,14 +51,10 @@ $product = $stmt->fetch();
             <h3><?=htmlentities($product['price']) ?> kr</h3>
             <p><span><?=htmlentities($product['description']) ?></span></p>
             <p>Stock: <?=htmlentities($product['stock']) ?></p>
-            
-
-            <p>Total price: <?php ?> kr</p>
 
             <form action="add-cart-item.php" method="POST">
                 <input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="00" max="<?=htmlentities($product['stock']) ?>" value="1"><br><br>
+                <input type="number" id="quantity" name="quantity" min="00" max="<?=htmlentities($product['stock']) ?>" value="1">
                 <input type="submit" name="addToCart" value="Add to Cart">
             </form>
 

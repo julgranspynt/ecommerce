@@ -242,10 +242,11 @@
 
 
 <?php
-	echo "<pre>";
+/* 	echo "<pre>";
 	print_r($user);
-	echo "</pre>"; 
+	echo "</pre>";  */
 	?>
+
 <h2>Welcome to your page <?=$user['first_name']?> <?=$user['last_name']?>!</h2>
 
 
