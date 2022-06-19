@@ -14,7 +14,6 @@ include('layout/header.php');
 </head>
 <body>
     <div class="container">
-        <?php include('cart.php') ?>
 
         <br>
 
