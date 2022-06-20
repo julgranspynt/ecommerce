@@ -49,6 +49,8 @@ $product = $stmt->fetch();
 
             <h2><?=htmlentities($product['title']) ?></h2>
             <h3><?=htmlentities($product['price']) ?> kr</h3>
+            <h5><?=htmlentities($product['summary']) ?></h5>
+            <h5><?=htmlentities($product['size']) ?> gr.</h5>
             <p><span><?=htmlentities($product['description']) ?></span></p>
             <p>Stock: <?=htmlentities($product['stock']) ?></p>
 
