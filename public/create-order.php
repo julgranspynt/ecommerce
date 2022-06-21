@@ -9,7 +9,14 @@ require('../src/config.php');
     print_r($_SESSION);
     echo "</pre>";
 
-    if (isset($_POST['createOrderBtn']) && !empty($_SESSION['cartItems'])) {
+/*     if någon av postfälten är tomma, omdirigera till checkout.php?missingRequiredFields
+ */    
+    if (empty($_POST)) {
+        header('Location: checkout.php?missingRequiredFields');
+        exit;
+    }
+
+    else if (isset($_POST['createOrderBtn']) && !empty($_SESSION['cartItems'])) {
         $firstName      = trim($_POST['firstName']);
         $lastName       = trim($_POST['lastName']);
         $email          = trim($_POST['email']);
