@@ -1,4 +1,5 @@
-$('#updateModal').on('show.bs.modal', function (event) {
+    
+    $('#updateModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
     var title = button.data('title'); 
     var description = button.data('description'); 
@@ -52,8 +53,6 @@ async function addSearchResult(e) {
    
             <form id="search-form" method="POST">
 
-            <button type="button" class="button botton-width" data-dismiss="modal">Close</button>
-            </div>
             </form>
             </div>
             </div>

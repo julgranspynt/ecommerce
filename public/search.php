@@ -39,7 +39,7 @@ if(isset($_POST['matchProduct'])) {
                  data-target="#updateModal"data-id="<?=htmlentities($product['id'])?>"  data-title="<?=htmlentities($key['title'])?>"  
                  data-description="<?=htmlentities($product['description'])?>" 
                  data-stock="<?=htmlentities($product['stock'])?>" 
-                 data-price="<?=htmlentities($product['price'])?>">Search</button>
+                 data-price="<?=htmlentities($product['price'])?>"><ion-icon  name="search-outline" class="icon"></ion-icon></button>
 </div>
 
 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,6 +83,9 @@ if ( window.history.replaceState ) {window.history.replaceState( null, null, win
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 <script src="jssearch.js"></script>
 </body>
