@@ -350,17 +350,7 @@
                
         
             </div>
-<!-- 
-            <a href='logout.php'>Logga ut</a> -->
-            <!-- 
 
-            if ($deletemessage) {
-                echo "<p>
-                     $deletemessage;
-                </p> ";
-            }; -->
-        
-<?php include('./layout/footer.php'); ?>
 
 
             
