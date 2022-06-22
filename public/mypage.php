@@ -28,14 +28,6 @@
 
     }
 
-
-    // header( 'Location: http://www.yoursite.com/new_page.html' );
-    // exit;
-    // $id = $_POST['deleteUserBtn'];
-    // $sql = $pdo->prepare('DELETE FROM users WHERE id = :id')->execute(['id' => $id]);
-
-    // if ($sql) header;
-
     
     if(isset($_POST['nameUpdateBtn'])) {
         $firstName = trim($_POST['firstName']);
@@ -241,12 +233,6 @@
 ?>  
 
 
-<?php
-/* 	echo "<pre>";
-	print_r($user);
-	echo "</pre>";  */
-	?>
-
 <h2>Welcome to your page <?=$user['first_name']?> <?=$user['last_name']?>!</h2>
 
 
@@ -317,19 +303,19 @@
                 </form>
             </div>
 
-            <div class="modal-body">
+            <div>
                 <form action="" method="POST">
                     <div>
                         <label for="input1">Old password:</label><br>
                         <input type="text" name="oldpassword"><br>
                     </div>
-                    <div class="form-group">
+                    <div>
                         <label for="input1">New password:</label><br>
-                        <input type="text" class="form-control" name="newpassword"><br>
+                        <input type="text"  name="newpassword"><br>
                     </div>
-                    <div class="form-group">
+                    <div>
                         <label for="input1">Confirm new password:</label><br>
-                        <input type="text" class="form-control" name="confirmnewpassword"><br>
+                        <input type="text" name="confirmnewpassword"><br>
                     </div>
                     <div>
                         <br>
@@ -351,17 +337,7 @@
                
         
             </div>
-<!-- 
-            <a href='logout.php'>Logga ut</a> -->
-            <!-- 
 
-            if ($deletemessage) {
-                echo "<p>
-                     $deletemessage;
-                </p> ";
-            }; -->
-        
-<?php include('./layout/footer.php'); ?>
 
 
             

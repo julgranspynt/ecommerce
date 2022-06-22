@@ -1,9 +1,5 @@
 <?php
 
-    /* echo "<pre>";
-    print_r($_SESSION['cartItems']);
-    echo "</pre>";  */
-
     if(!isset($_SESSION['cartItems'])) {
         $_SESSION['cartItems'] = [];
     }

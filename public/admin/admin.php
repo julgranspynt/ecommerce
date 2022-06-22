@@ -1,22 +1,15 @@
-<?php
- require('../../src/config.php');
- session_start();
+<?
+ require('../src/config.php');
+ require('../src/functions.php'); 
 
   $message = "";
 
  if (isset($_POST['deleteUserBtn'])) {
-     $sql = "
-         DELETE FROM users 
-         WHERE id = :id;
-     ";
-     $state = $pdo->prepare($sql);
-     $state->bindParam(':id', $_POST['userId']);
-     $state->execute();
+     deleteUsers();
+    
  }
 
- $sql = "SELECT * FROM users;";
- $state = $pdo->query($sql);
- $users = $state->fetchAll();
+ $users = fetchAllUsers();
 
 ?>
 

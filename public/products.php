@@ -1,5 +1,6 @@
 <?php
 require('../src/config.php');
+include('./layout/header.php'); 
 
 
 	$pageTitle = "All products";
@@ -15,7 +16,6 @@ $products = $stmt->fetchAll();
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,9 +26,6 @@ $products = $stmt->fetchAll();
 	
 </head>
 <body>
-
-	<?php include('./layout/header.php'); ?>
-	
 
 	<main>
 		<ul id="list-group">
@@ -61,12 +58,6 @@ $products = $stmt->fetchAll();
 	</main>
 
 	<?php include('./layout/footer.php'); ?>
-	
-	<?php
-	/* echo "<pre>";
-	print_r($_SESSION['cartItems']);
-	echo "</pre>";  */
-	?>
 
 </body>
 </html>
