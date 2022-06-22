@@ -7,15 +7,15 @@ function fetchAllUsers() {
 
  }
 
-function deleteUsers() {
- global $pdo;
+ function deleteUsers() {
+  global $pdo;
   $sql = "
   DELETE FROM users 
   WHERE id = :id;
 ";
-$state = $pdo->prepare($sql);
-$state->bindParam(':id', $_POST['userId']);
-$state->execute();
+  $state = $pdo->prepare($sql);
+  $state->bindParam(':id', $_POST['userId']);
+  $state->execute();
 
 }
 
