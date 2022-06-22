@@ -1,5 +1,6 @@
 <?php
 require('../src/config.php');
+include('./layout/header.php'); 
 
     $pageTitle = "Product";
     $pageId    = "products";
@@ -31,8 +32,6 @@ $product = $stmt->fetch();
 </head>
 <body>
 
-    <?php include('./layout/header.php'); ?>
-
     <fieldset id="container">
 
         <div id="backBtn">
@@ -63,7 +62,6 @@ $product = $stmt->fetch();
             </form>
 
         </div>
-
 
     </fieldset>
 
