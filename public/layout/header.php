@@ -19,6 +19,17 @@ if(isset($_POST['matchProduct'])) {
             'products' => $products
         ];
 }
+
+if(!isset($_SESSION['cartItems'])) {
+        $_SESSION['cartItems'] = [];
+    }
+
+    $cartItemCount = 0;
+    $cartTotalSum = 0;
+    foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
+        $cartTotalSum += $cartItem['price'] * $cartItem['quantity'];
+        $cartItemCount += $cartItem['quantity'];
+    }
 ?>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
@@ -36,7 +47,37 @@ if(isset($_POST['matchProduct'])) {
 
           <a href="./mypage.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>
           <a href="./logout.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>
-          <a href="./cart.php"><ion-icon  name="cart-outline" class="icon"></ion-icon></i></a>
+          <a class="cart-dropdown">
+            <button><ion-icon  name="cart-outline" class="icon dropbtn" onclick="myFunction()"></ion-icon></i><span class="cart-counter"><?=$cartItemCount ?></span></button>
+    
+            <div class="dropdown-content" id="myDropdown">
+        
+                <div><h5 style="text-align: left;">Cart items: </h5></div>
+        
+                <div class="product-row">
+                    <?php foreach($_SESSION['cartItems'] as $cartId => $cartItem): ?>
+                        <div class="row cart-detail">
+                      
+                            <div class="cart-detail-img">
+                                <img src="./admin/<?=$cartItem['img_url']?>" width=100px>
+                            </div>
+
+                            <div class="cart-detail-product">
+                                <p><strong><?=$cartItem['title']?></strong></p>
+                                <span><?=$cartItem['price']?> kr</span><br> <span class="count">Quantity: <?=$cartItem['quantity']?></span>
+                            </div>
+
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <div><h5 style="text-align: left; margin-top: 0.5rem;">Total sum: <span><?=$cartTotalSum ?> kr</span></h5></div>
+
+                <a href="checkout.php" class="checkoutBtn">Checkout</a>
+        
+            </div>
+
+          </a>
           <a type="button" class="" data-toggle="modal" 
                     data-target="#updateModal"data-id="<?=htmlentities($product['id'])?>"  data-title="<?=htmlentities($key['title'])?>"  
                     data-description="<?=htmlentities($product['description'])?>" 
@@ -50,8 +91,7 @@ if(isset($_POST['matchProduct'])) {
         </div>
 
       </div>
-
-</div>
+    </div>
 </nav>
 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -91,7 +131,7 @@ if(isset($_POST['matchProduct'])) {
 if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}
 </script>    
 
-<!-- <script>
+<script>
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -104,7 +144,7 @@ window.onclick = function(e) {
     }
   }
 }
-</script> -->
+</script>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
