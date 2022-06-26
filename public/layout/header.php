@@ -47,16 +47,18 @@ if(!isset($_SESSION['cartItems'])) {
 
           <a href="./mypage.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>
           <a href="./logout.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>
-          <a class="cart-dropdown">
+          <div class="cart-dropdown">
             <button><ion-icon  name="cart-outline" class="icon dropbtn" onclick="myFunction()"></ion-icon></i><span class="cart-counter"><?=$cartItemCount ?></span></button>
     
             <div class="dropdown-content" id="myDropdown">
         
-                <div><h5 style="text-align: left;">Cart items: </h5></div>
+                <div>
+                  <h5>Cart items: </h5>
+                </div>
         
-                <div class="product-row">
+                <ul class="product-row">
                     <?php foreach($_SESSION['cartItems'] as $cartId => $cartItem): ?>
-                        <div class="row cart-detail">
+                        <li class="row cart-detail">
                       
                             <div class="cart-detail-img">
                                 <img src="./admin/<?=$cartItem['img_url']?>" width=100px>
@@ -67,17 +69,18 @@ if(!isset($_SESSION['cartItems'])) {
                                 <span><?=$cartItem['price']?> kr</span><br> <span class="count">Quantity: <?=$cartItem['quantity']?></span>
                             </div>
 
-                        </div>
+                        </li>
                     <?php endforeach; ?>
+                </ul>
+
+                <div class="checkout">
+                  <h5>Total sum: <span><?=$cartTotalSum ?> kr</span></h5><br>
+                  <a href="checkout.php" class="checkoutBtn">Checkout</a>
                 </div>
-
-                <div><h5 style="text-align: left; margin-top: 0.5rem;">Total sum: <span><?=$cartTotalSum ?> kr</span></h5></div>
-
-                <a href="checkout.php" class="checkoutBtn">Checkout</a>
         
             </div>
 
-          </a>
+                    </div>
           <a type="button" class="" data-toggle="modal" 
                     data-target="#updateModal"data-id="<?=htmlentities($product['id'])?>"  data-title="<?=htmlentities($key['title'])?>"  
                     data-description="<?=htmlentities($product['description'])?>" 
