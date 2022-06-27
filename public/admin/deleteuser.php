@@ -8,19 +8,7 @@
     print_r($_GET);
     echo "</pre>";
 
-    function deleteUser () {
-        global $pdo;
-
-        $sql = "
-            DELETE FROM users 
-            WHERE id = :id;
-        ";
-        $state = $pdo->prepare($sql);
-        $state->bindParam(':id', $_POST['userId']);
-        $state->execute();
-        
-
-    }
+    deleteUsers ();
 
 ?>
 
