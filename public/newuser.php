@@ -1,6 +1,6 @@
 <?php
     require('../src/config.php');
-    require('../src/app/FunctionNewUser.php');
+    require('../src/app/functionsEmma.php');
     $pageTitle = "New User";
     // $pageId    = "register";
     // echo "<pre>";
