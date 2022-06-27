@@ -147,80 +147,67 @@
             //     </div>
             // ';
         }
-
-    if(isset($_POST['newPasswordBtn'])) {
-        $oldpassword = trim($_POST['oldpassword']);
-        $newpassword = trim($_POST['newpassword']);
-        $confirmnewpassword = trim($_POST['confirmnewpassword']);
-
-        $sql = "
-            SELECT password FROM users
-            WHERE id = :id
-        ";
-
-        $state = $pdo->prepare($sql);
-        $state->bindParam(':id', $_SESSION['id']);
-        $state->execute();
-        $currentpassword = $state->fetch();
-
-        if ( !password_verify($oldpassword, $currentpassword['password']) ) {
-            $message = '
-                <div>
-                    The old password is incorrect.
-                </div>
-            ';
-        } else {
-            if (empty($newpassword)) {
-                $message .= '
-                    <div>
-                    Please fill in new password.
-                    </div>
-                ';
-            }
-            
-            if (empty($confirmnewpassword)) {
-                $message .= '
-                    <div>
-                    Please confirm your new password.
-                    </div>
-                ';
-            }
     
-            if (!empty($confirmnewpassword) && !empty($newpassword) && $newpassword !== $confirmnewpassword) {
-                $message .= '
-                    <div>
+
+        if(isset($_POST['newPasswordBtn'])) {
+                $oldpassword = trim($_POST['oldpassword']);
+                $newpassword = trim($_POST['newpassword']);
+                $confirmnewpassword = trim($_POST['confirmnewpassword']);
+    
+
+                    $sql = "
+                        SELECT password FROM users
+                        WHERE id = :id
+                    ";
+            
+                    $state = $pdo->prepare($sql);
+                    $state->bindParam(':id', $_SESSION['id']);
+                    $state->execute();
+                    $currentpassword = $state->fetch();
+    
+            if ( !password_verify($oldpassword, $currentpassword['password']) ) {
+                $message = '
+                    <div class="">
+                        The old password is incorrect.
+                    </div>
+                ';
+            } else {
+                if (empty($newpassword)) {
+                    $message .= '
+                        <div class="">
+                        Please fill in new password.
+                        </div>
+                    ';
+                }
+    
+                if (empty($confirmnewpassword)) {
+                    $message .= '
+                        <div class="">
+                        Please confirm your new password.
+                        </div>
+                    ';
+                }
+    
+                if (!empty($confirmnewpassword) && !empty($newpassword) && $newpassword !== $confirmnewpassword) {
+                    $message .= '
+                        <div class="">
                         "Password" and "Confirm password" dont match, please try again!
-                    </div>
-                ';
-            } 
-            
-            if (empty($message)) {
-                $encryptedPassword = password_hash($newpassword, PASSWORD_BCRYPT, ['cost' => 12]);
-
-                $sql = "
-                    UPDATE users
-                    SET
-                    password = :password
-                    WHERE id = :id
-                ";
-            
-                $state = $pdo->prepare($sql);
-                $state->bindParam(":password", $encryptedPassword);
-                $state->bindParam(':id', $_SESSION['id']);
-                $state->execute();
-
-                $message .= '
-                    <div>
-                    Update success.
-                    </div>
-                ';
+                        </div>
+                    ';
+                } else {
+                    $encryptedPassword = password_hash($newpassword, PASSWORD_BCRYPT, ['cost' => 12]);
+                    $message .= '
+                        <div class="">
+                            Password has been updated.
+                        </div>
+                    ';
+                }
             }
         }
-
     }
 
 
-    }
+    
 
     $sql = "
         SELECT * FROM users
@@ -250,7 +237,7 @@
     <b>Postal code: </b> <?=$user['postal_code']?><br>
     <b>City: </b> <?=$user['city']?><br>
     <b>Country: </b> <?=$user['country']?> <br>
-</div>
+</div><br>
 
 
             <div>
@@ -325,13 +312,20 @@
                 </form> <br><h2>Delete user</h2>
 
                 <form action="" method="POST">
-                        <input type="hidden" name="userId" value="<?=htmlentities($user['id']) ?>">
+
+                        <div class="alert alert-light" role="alert">
+  You can not regret this action later. Do you want to logout instead? <a href="logout.php" class="alert-link">Log out</a>
+  <br>
+
+</div>
+<input type="hidden" name="userId" value="<?=htmlentities($user['id']) ?>">
                         <input type="submit" name="deleteUserBtn" value="Delete">
+
                 </form>
 
                 
-                <form action="logout.php" method="POST">
-                        <input type="submit" name="logOutBtn" value="Logout">
+                <form action="logout.php" method="POST"> <br><h2>Log out user</h2>
+                        <input type="submit" name="logOutBtn" value="Log out">
 
                 </form>
                

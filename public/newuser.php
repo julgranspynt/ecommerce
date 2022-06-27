@@ -1,6 +1,6 @@
 <?php
     require('../src/config.php');
-    require('../src/app/FunctionNewUser.php');
+    require('../src/app/myFunctionsEmma.php');
     $pageTitle = "New User";
     // $pageId    = "register";
     // echo "<pre>";
@@ -94,13 +94,7 @@
                 } else {
                     throw new \PDOException($e->getMessage(), (int) $e->getCode());
                 }
-    }      
-           
-
-        
-
-        
-        
+    }        
     }
     }
 
