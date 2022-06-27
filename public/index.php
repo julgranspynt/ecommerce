@@ -1,3 +1,9 @@
+<?php 
+require('../src/config.php');
+include('./layout/header.php'); 
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +14,6 @@
 	<title>Landing page</title>
 </head>
 <body>
-
-	<?php include('./layout/header.php'); ?>
 
 	<main>
 

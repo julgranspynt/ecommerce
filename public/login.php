@@ -35,6 +35,7 @@
 
 
         if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['loggedin'] = true;
             $_SESSION['id'] = $user['id'];
             header('Location: myPage.php');
             exit;

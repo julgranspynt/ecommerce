@@ -6,12 +6,31 @@ $message   ="";
 
 /* Om GET parametern "missingRequiredFields" existerar if (isset($_GET["missingRequiredFields"])) {}, visa felmeddelandet "Alla fält behöver fyllas i för att genomföra orderköpet"
  */
-if (isset($_GET['missingRequiredFields'])) {
+/* if (isset($_GET['missingRequiredFields'])) {
         $message = '
             <div>
                 All fields need to be filled 
             </div>
         ';
+} */
+
+/* echo "<pre>";
+print_r($_SESSION);
+echo "</pre>"; */
+
+if (!empty($_SESSION['id'])) {
+    $sql = "
+        SELECT * FROM users
+        WHERE id = :id
+    ";
+    $state = $pdo->prepare($sql);
+    $state->bindParam(':id', $_SESSION['id']);
+    $state->execute();
+    $user = $state->fetch();
+
+    /* echo "<pre>";
+    print_r($user);
+    echo "</pre>"; */
 }
 
 ?>
@@ -82,45 +101,45 @@ if (isset($_GET['missingRequiredFields'])) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="first-name">First name</label>
-                    <input type="text" class="form-control" name="firstName" id="first-name" placeholder="First name">
+                    <input type="text" class="form-control" name="firstName" id="first-name" placeholder="First name" value="">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="last-name">Last name</label>
-                    <input type="text" class="form-control" name="lastName" id="last-name" placeholder="Last name">
+                    <input type="text" class="form-control" name="lastName" id="last-name" placeholder="Last name" value="">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">E-mail address</label>
-                    <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="E-mail address">
+                    <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="E-mail address" value="">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+                    <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password" value="">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" name="street" id="inputAddress" placeholder="Street">
+                    <input type="text" class="form-control" name="street" id="inputAddress" placeholder="Street" value="">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputZip">Postal Code</label>
-                    <input type="text" class="form-control" name="postalCode" id="inputZip">
+                    <input type="text" class="form-control" name="postalCode" id="inputZip" value="">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="phone">Telephone</label>
-                    <input type="text" class="form-control" name="phone" id="phone">
+                    <input type="text" class="form-control" name="phone" id="phone" value="">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" name="city" id="inputCity">
+                    <input type="text" class="form-control" name="city" id="inputCity" value="">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputState">Country</label>
-                    <select name="country" class="form-control" id="inputState">
+                    <select name="country" class="form-control" id="inputState" value="">
                         <option value="se">Sweden</option>
                     </select>
                 </div>
