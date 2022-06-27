@@ -1,5 +1,6 @@
 <?php
 require('../src/config.php');
+include('./layout/header.php'); 
 
     $pageTitle = "Product";
     $pageId    = "products";
@@ -31,8 +32,6 @@ $product = $stmt->fetch();
 </head>
 <body>
 
-    <?php include('./layout/header.php'); ?>
-
     <fieldset id="container">
 
         <div id="backBtn">
@@ -49,21 +48,18 @@ $product = $stmt->fetch();
 
             <h2><?=htmlentities($product['title']) ?></h2>
             <h3><?=htmlentities($product['price']) ?> kr</h3>
+            <h5><?=htmlentities($product['summary']) ?></h5>
+            <h5><?=htmlentities($product['size']) ?> gr.</h5>
             <p><span><?=htmlentities($product['description']) ?></span></p>
             <p>Stock: <?=htmlentities($product['stock']) ?></p>
-            
-
-            <p>Total price: <?php ?> kr</p>
 
             <form action="add-cart-item.php" method="POST">
                 <input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="00" max="<?=htmlentities($product['stock']) ?>" value="1"><br><br>
+                <input type="number" id="quantity" name="quantity" min="00" max="<?=htmlentities($product['stock']) ?>" value="1">
                 <input type="submit" name="addToCart" value="Add to Cart">
             </form>
 
         </div>
-
 
     </fieldset>
 

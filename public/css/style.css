@@ -78,3 +78,95 @@ ion-icon {
     background-color: beige;
   }
 
+button {
+    border: 0;
+    background: none;
+    padding: 0;
+}
+
+/* Cart styling */
+
+.cart-dropdown {
+    float:right;
+    overflow: hidden;
+    padding: 0;
+}
+
+.cart-dropdown .dropbtn {
+    cursor: pointer;
+    font-size: 30px;
+    border: none;
+    outline: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 400px;
+    max-height: 500px;
+    z-index: 1;
+    right: 25px;
+    font-size: 12px;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: right;
+}
+.dropdown-content h5 {
+    text-align: left;
+    margin: 0.5rem;
+}
+
+.show {
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+ul.product-row {
+    margin: 0 0 10px 0;
+    padding: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.row.cart-detail {
+    border-bottom: 0.5px solid black;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px 10px 0;
+}
+
+.cart-detail-img {
+    width: 25%;
+}
+
+.cart-detail-product {
+    width: 65%;
+}
+
+div.checkout {
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+a.checkoutBtn {
+    background-color: pink;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    display: inline-block;
+}

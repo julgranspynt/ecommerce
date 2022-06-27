@@ -1,5 +1,6 @@
 <?php
-        require('../src/config.php');
+        require('../../src/config.php');
+        require('../../src/functions.php'); 
         $pageTitle = "Update User";
 
         echo "<pre>";
@@ -25,7 +26,7 @@
         $password           = trim($_POST['password']);
         $confirmPassword    = trim($_POST['confirmPassword']);
 
-        $sql = " 
+        /* $sql = " 
         UPDATE users
         SET  first_name = :first_name, last_name = :last_name, 
         street = :street, postal_code = :postal_code, city = :city, 
@@ -44,7 +45,9 @@
         $state->bindParam(':email', $email);
         $state->bindParam(':phone', $phone);
         $state->bindParam(':password', $encryptedPassword);
-        $state->execute();
+        $state->execute(); */
+
+        updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password, $confirmPassword);
     }
 
     $sql = "
