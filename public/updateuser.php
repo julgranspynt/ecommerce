@@ -27,9 +27,15 @@
 
         $sql = " 
         UPDATE users
-        SET  first_name = :first_name, last_name = :last_name, 
-        street = :street, postal_code = :postal_code, city = :city, 
-        country = :country, email = :email, phone = :phone, password = :password
+        SET  
+        first_name = :first_name, 
+        last_name = :last_name, 
+        street = :street, 
+        postal_code = :postal_code, 
+        city = :city, 
+        country = :country, 
+        email = :email, 
+        phone = :phone, password = :password
         WHERE id = :id ";
 
         $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
@@ -110,12 +116,12 @@
                     </p>
 
                     <p>
-                        <label for="input2">Password:</label> <br>
+                        <label for="input2">New password:</label> <br>
                         <input type="password" class="text" name="password">
                     </p>
 
                     <p>
-                        <label for="input2">Confirm Password:</label> <br>
+                        <label for="input2">Confirm new password:</label> <br>
                         <input type="password" class="text" name="confirmPassword">
                     </p>
                     <p>

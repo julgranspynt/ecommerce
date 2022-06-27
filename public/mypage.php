@@ -13,6 +13,8 @@
         header('Location: login.php?mustLogin');
     }
 
+    
+
     if (isset($_POST['deleteUserBtn'])) {
     
         $sql = "
@@ -27,6 +29,31 @@
         
 
     }
+
+    if(isset($_POST['newPasswordBtn'])) {
+        $password           = trim($_POST['password']);
+        $confirmPassword    = trim($_POST['confirmPassword']);
+
+            $sql = "
+                UPDATE users
+                SET password = :password
+                WHERE id = :id
+            ";
+
+            $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+            $state = $pdo->prepare($sql);
+            $state->bindParam(':id', $encryptedPassword);
+            $state->bindParam(':password', $encryptedPassword);
+            $state->execute();
+            $user = $state->fetch();
+
+            $message .= '
+                <div class="">
+                    Password has been updated.
+                </div>
+            ';
+        }
+    
 
     
     if(isset($_POST['nameUpdateBtn'])) {
@@ -149,61 +176,6 @@
         }
     
 
-        if(isset($_POST['newPasswordBtn'])) {
-                $oldpassword = trim($_POST['oldpassword']);
-                $newpassword = trim($_POST['newpassword']);
-                $confirmnewpassword = trim($_POST['confirmnewpassword']);
-    
-
-                    $sql = "
-                        SELECT password FROM users
-                        WHERE id = :id
-                    ";
-            
-                    $state = $pdo->prepare($sql);
-                    $state->bindParam(':id', $_SESSION['id']);
-                    $state->execute();
-                    $currentpassword = $state->fetch();
-    
-            if ( !password_verify($oldpassword, $currentpassword['password']) ) {
-                $message = '
-                    <div class="">
-                        The old password is incorrect.
-                    </div>
-                ';
-            } else {
-                if (empty($newpassword)) {
-                    $message .= '
-                        <div class="">
-                        Please fill in new password.
-                        </div>
-                    ';
-                }
-    
-                if (empty($confirmnewpassword)) {
-                    $message .= '
-                        <div class="">
-                        Please confirm your new password.
-                        </div>
-                    ';
-                }
-    
-                if (!empty($confirmnewpassword) && !empty($newpassword) && $newpassword !== $confirmnewpassword) {
-                    $message .= '
-                        <div class="">
-                        "Password" and "Confirm password" dont match, please try again!
-                        </div>
-                    ';
-                } else {
-                    $encryptedPassword = password_hash($newpassword, PASSWORD_BCRYPT, ['cost' => 12]);
-                    $message .= '
-                        <div class="">
-                            Password has been updated.
-                        </div>
-                    ';
-                }
-            }
-        }
     }
 
 
@@ -293,16 +265,12 @@
             <div>
                 <form action="" method="POST">
                     <div>
-                        <label for="input1">Old password:</label><br>
-                        <input type="text" name="oldpassword"><br>
-                    </div>
-                    <div>
                         <label for="input1">New password:</label><br>
-                        <input type="text"  name="newpassword"><br>
+                        <input type="text"  name="password"><br>
                     </div>
                     <div>
                         <label for="input1">Confirm new password:</label><br>
-                        <input type="text" name="confirmnewpassword"><br>
+                        <input type="text" name="confirmPassword"><br>
                     </div>
                     <div>
                         <br>
