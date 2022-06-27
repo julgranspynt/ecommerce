@@ -15,6 +15,22 @@
         ';
     }
 
+    if (isset($_GET['mustLogin'])) {
+        $message = '
+            <div>
+                You need to log in to see this page.
+            </div>
+        ';
+    }
+
+    if (isset($_GET['logout'])) {
+        $message = '
+            <div>
+                You have successfully logged out.
+            </div>
+        ';
+    }
+
     if (isset($_POST['loginBtn'])) {
         $email    = trim($_POST['email']);
         $password = trim($_POST['password']);
@@ -29,20 +45,22 @@
         $state->execute();
         $user = $state->fetch();
 
-        echo "<pre>";
+        /* echo "<pre>";
         print_r($user);
-        echo "</pre>";
+        echo "</pre>"; */
 
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['loggedin'] = true;
             $_SESSION['id'] = $user['id'];
+            $_SESSION['email'] = $user['email'];
+
             header('Location: myPage.php');
             exit;
         } else {
             $message = '
                 <div class="">
-                    Something went wrong, please try again.
+                    Incorrect credentials, please try again.
                 </div>
             ';
         }

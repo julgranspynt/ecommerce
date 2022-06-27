@@ -1,4 +1,5 @@
-<?php
+
+    <?php
 
     function newUser($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password) {  
         global $pdo;
@@ -21,6 +22,23 @@
         $state->bindParam(':password', $encryptedPassword);
         $state->execute();
     }
+
+
+
+    function fetchAllUsers(){
+        global $pdo;
+        
+        $sql = "
+        SELECT * FROM users
+        WHERE id = :id
+        ";
+        $state = $pdo->prepare($sql);
+        $state->bindParam(':id', $_GET ["userId"]);
+        $state->execute();
+        $user = $state->fetch();
+
+}
+
 
 
 

@@ -78,8 +78,9 @@ async function addSearchResult(e) {
             </tr>
             </tbody>
             <tbody>
-                <td><img src="${product['img_url']}" width="150px"></td>
-                <td><a href="${product['id']}">Go to product</a></td>
+                <td><img src="./admin/${product['img_url']}" width="150px"></td>
+                <td><a class="button botton-width" href="./products.php">Go to products</a></td>
+                
             </tbody>
             </table>
            `  
@@ -87,3 +88,5 @@ async function addSearchResult(e) {
             $('#submitSearch').html(html);
         }
         
+      
+        // <td><a class="button botton-width" href="./products.php/${product['id']}">Go to products</a></td>

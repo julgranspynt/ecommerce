@@ -1,14 +1,15 @@
 <?php
-        require('../src/config.php');
+        require('../../src/config.php');
+        require('../../src/functions.php'); 
         $pageTitle = "Update User";
 
-        echo "<pre>";
+        /* echo "<pre>";
         print_r($_POST);
         echo "</pre>";
 
         echo "<pre>";
         print_r($_GET);
-        echo "</pre>";
+        echo "</pre>"; */
 
 
     $message = "";
@@ -25,7 +26,7 @@
         $password           = trim($_POST['password']);
         $confirmPassword    = trim($_POST['confirmPassword']);
 
-        $sql = " 
+        /* $sql = " 
         UPDATE users
         SET  first_name = :first_name, last_name = :last_name, 
         street = :street, postal_code = :postal_code, city = :city, 
@@ -44,7 +45,10 @@
         $state->bindParam(':email', $email);
         $state->bindParam(':phone', $phone);
         $state->bindParam(':password', $encryptedPassword);
-        $state->execute();
+        $state->execute(); */
+
+        updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password, $confirmPassword);
+        $messageuser .= "User successfully updated! <br>";
     }
 
     $sql = "
@@ -56,7 +60,7 @@
     $state->execute();
     $user = $state->fetch();
     
-
+    
 
 ?>
 <?php include('./layout/header.php'); ?>
@@ -68,6 +72,7 @@
                     <legend>Update User </legend>
 
                     <?=$message ?>
+                    <br><?=$messageuser ?>
                     
                     <p>
                         <label for="input1">First Name:</label> <br>
@@ -120,7 +125,7 @@
                     </p>
                     <p>
                         <input type="submit" name="updateUserBtn" value="Update"> | 
-                        
+                        <a href="admin.php">&#x2190; back</a>
                     </p>
                 </fieldset>
             </form>

@@ -45,8 +45,14 @@ if(!isset($_SESSION['cartItems'])) {
 
         <div class="navigation">
 
-          <a href="./mypage.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>
-          <a href="./logout.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>
+          <a href="./mypage.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>    
+          
+          <?php if( $_SESSION['email']): ?>
+              <a href="./logout.php"><ion-icon  name="log-out-outline" class="icon"></ion-icon></a>
+          <?php else: ?>
+              <a href="./login.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>
+          <?php endif; ?>
+
           <div class="cart-dropdown">
             <button><ion-icon  name="cart-outline" class="icon dropbtn" onclick="myFunction()"></ion-icon></i><span class="cart-counter"><?=$cartItemCount ?></span></button>
     
@@ -87,7 +93,6 @@ if(!isset($_SESSION['cartItems'])) {
                     data-stock="<?=htmlentities($product['stock'])?>" 
                     data-price="<?=htmlentities($product['price'])?>"><ion-icon  name="search-outline" class="icon"></ion-icon></a>
         </div>
-
 
         <div class="logo-img">
         <a href="./index.php"><img src="./img/LOGOwithoutcircle.png" alt="" width ="350px" height="200px"></a>

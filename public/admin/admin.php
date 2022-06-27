@@ -19,9 +19,16 @@
 
          <?=$message ?>
 
-         <form action="../newuser.php" method="POST">
+         <nav id="main-nav">
+            <form action="../newuser.php" method="POST">
             	<input type="submit" value="Create a new user">
             </form>
+         </nav>
+
+         <nav id="main-nav2">
+            <a href="index.php">Admin home</a>
+         </nav>
+
 
             <br>
          
@@ -57,7 +64,7 @@
                          <td><?=htmlentities($user['country']) ?></td>
                          <td><?=htmlentities($user['create_date']) ?></td>
                          <td>
-                             <form action="#" method="GET">
+                             <form action="updateuser.php" method="GET">
                                  <input type="hidden" name="userId" value="<?=htmlentities($user['id']) ?>">
                                  <input type="submit" value="Updatera">
                              </form>

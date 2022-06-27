@@ -1,6 +1,6 @@
 <?php
     require('../src/config.php');
-    require('../src/app/FunctionNewUser.php');
+    require('../src/app/functionsEmma.php');
     $pageTitle = "New User";
     // $pageId    = "register";
     // echo "<pre>";
@@ -124,6 +124,7 @@
                     <legend>Register here please.</legend>
 
                     <?=$message ?>
+                    <br><?=$messageuser ?>
                     
                     <p>
                         <label for="input1">First Name:</label> <br>
@@ -176,7 +177,7 @@
                     </p>
                     <p>
                         <input type="submit" name="newUserBtn" value="Registrera"> <br>
-                        <br><?=$messageuser ?>
+                        
                     </p>
                                              
 
