@@ -33,7 +33,7 @@ if(isset($_POST['matchProduct'])) {
 
       <div class="navigation">
 
-        <a href="./mypage.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>
+        <a href="login.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>
         <a href="./logout.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>
         <a href="./cart.php"><ion-icon  name="cart-outline" class="icon"></ion-icon></i></a>
         <a type="button" class="" data-toggle="modal" 
