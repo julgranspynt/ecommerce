@@ -19,9 +19,16 @@
 
          <?=$message ?>
 
-         <form action="../newuser.php" method="POST">
+         <nav id="main-nav">
+            <form action="../newuser.php" method="POST">
             	<input type="submit" value="Create a new user">
             </form>
+         </nav>
+
+         <nav id="main-nav2">
+            <a href="index.php">Admin home</a>
+         </nav>
+
 
             <br>
          

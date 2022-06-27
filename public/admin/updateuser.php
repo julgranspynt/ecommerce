@@ -48,6 +48,7 @@
         $state->execute(); */
 
         updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password, $confirmPassword);
+       
     }
 
     $sql = "
@@ -59,7 +60,7 @@
     $state->execute();
     $user = $state->fetch();
     
-
+    
 
 ?>
 <?php include('./layout/header.php'); ?>
@@ -123,7 +124,7 @@
                     </p>
                     <p>
                         <input type="submit" name="updateUserBtn" value="Update"> | 
-                        
+                        <a href="admin.php">&#x2190; back</a>
                     </p>
                 </fieldset>
             </form>

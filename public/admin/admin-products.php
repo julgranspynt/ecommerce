@@ -34,14 +34,14 @@ $products = $stmt->fetchAll();
 
 <body>
     <div id="container">
-        <h1>Admin</h1>
+        <h1>Admin products</h1>
 
         <nav id="main-nav">
             <a href="create-product.php">Create new product</a>
         </nav>
 
         <nav id="main-nav2">
-            <a href="../index.php">Main page</a>
+            <a href="index.php">Admin home</a>
         </nav>
 
         <table class="content-table">

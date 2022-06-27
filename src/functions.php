@@ -116,27 +116,16 @@ function updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $c
   $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 
     $state = $pdo->prepare($sql);
-
     $state->bindParam(':id', $_GET["userId"]);
-
     $state->bindParam(':first_name', $firstname);
-
     $state->bindParam(':last_name', $lastname);
-
     $state->bindParam(':street', $street);
-
     $state->bindParam(':postal_code', $postalcode);
-
     $state->bindParam(':city', $city);
-
     $state->bindParam(':country', $country);
-
     $state->bindParam(':email', $email);
-
     $state->bindParam(':phone', $phone);
-
     $state->bindParam(':password', $encryptedPassword);
-
     $state->execute();
 
 }
