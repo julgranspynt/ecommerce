@@ -19,7 +19,19 @@ if(isset($_POST['matchProduct'])) {
             'products' => $products
         ];
 }
+
+if(!isset($_SESSION['cartItems'])) {
+        $_SESSION['cartItems'] = [];
+    }
+
+    $cartItemCount = 0;
+    $cartTotalSum = 0;
+    foreach ($_SESSION['cartItems'] as $cartId => $cartItem) {
+        $cartTotalSum += $cartItem['price'] * $cartItem['quantity'];
+        $cartItemCount += $cartItem['quantity'];
+    }
 ?>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -31,16 +43,49 @@ if(isset($_POST['matchProduct'])) {
     <div class ="header-column">
       <div class="header">
 
-      <div class="navigation">
+        <div class="navigation">
 
-        <a href="login.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>
-        <a href="./logout.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>
-        <a href="./cart.php"><ion-icon  name="cart-outline" class="icon"></ion-icon></i></a>
-        <a type="button" class="" data-toggle="modal" 
-                  data-target="#updateModal"data-id="<?=htmlentities($product['id'])?>"  data-title="<?=htmlentities($key['title'])?>"  
-                  data-description="<?=htmlentities($product['description'])?>" 
-                  data-stock="<?=htmlentities($product['stock'])?>" 
-                  data-price="<?=htmlentities($product['price'])?>"><ion-icon  name="search-outline" class="icon"></ion-icon></a>
+          <a href="./mypage.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>
+          <a href="./logout.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>
+          <div class="cart-dropdown">
+            <button><ion-icon  name="cart-outline" class="icon dropbtn" onclick="myFunction()"></ion-icon></i><span class="cart-counter"><?=$cartItemCount ?></span></button>
+    
+            <div class="dropdown-content" id="myDropdown">
+        
+                <div>
+                  <h5>Cart items: </h5>
+                </div>
+        
+                <ul class="product-row">
+                    <?php foreach($_SESSION['cartItems'] as $cartId => $cartItem): ?>
+                        <li class="row cart-detail">
+                      
+                            <div class="cart-detail-img">
+                                <img src="./admin/<?=$cartItem['img_url']?>" width=100px>
+                            </div>
+
+                            <div class="cart-detail-product">
+                                <p><strong><?=$cartItem['title']?></strong></p>
+                                <span><?=$cartItem['price']?> kr</span><br> <span class="count">Quantity: <?=$cartItem['quantity']?></span>
+                            </div>
+
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+
+                <div class="checkout">
+                  <h5>Total sum: <span><?=$cartTotalSum ?> kr</span></h5><br>
+                  <a href="checkout.php" class="checkoutBtn">Checkout</a>
+                </div>
+        
+            </div>
+
+                    </div>
+          <a type="button" class="" data-toggle="modal" 
+                    data-target="#updateModal"data-id="<?=htmlentities($product['id'])?>"  data-title="<?=htmlentities($key['title'])?>"  
+                    data-description="<?=htmlentities($product['description'])?>" 
+                    data-stock="<?=htmlentities($product['stock'])?>" 
+                    data-price="<?=htmlentities($product['price'])?>"><ion-icon  name="search-outline" class="icon"></ion-icon></a>
         </div>
 
         <div class="logo-img">
@@ -48,8 +93,7 @@ if(isset($_POST['matchProduct'])) {
         </div>
 
       </div>
-
-</div>
+    </div>
 </nav>
 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -89,6 +133,20 @@ if(isset($_POST['matchProduct'])) {
 if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}
 </script>    
 
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

@@ -1,9 +1,9 @@
 <?php
 require('../src/config.php');
 
-echo "<pre>";
+/* echo "<pre>";
 print_r($_POST);
-echo "</pre>"; 
+echo "</pre>";  */
 
 if (isset($_POST['cartId']) 
     && !empty($_POST['quantity'])

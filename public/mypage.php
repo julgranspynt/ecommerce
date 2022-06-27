@@ -10,8 +10,8 @@
 
     if (!isset($_SESSION['id'])) {
         print_r($_SESSION);
-        exit;
         header('Location: login.php?mustLogin');
+        exit;
     }
 
     if (isset($_POST['deleteUserBtn'])) {

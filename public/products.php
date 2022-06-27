@@ -2,6 +2,7 @@
 require('../src/config.php');
 include('./layout/header.php'); 
 
+
 	$pageTitle = "All products";
     $pageId    = "products";
 
@@ -47,7 +48,7 @@ $products = $stmt->fetchAll();
 
 					<form action="add-cart-item.php" method="POST">
 						<input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-						<input type="number" id="quantity" name="quantity" min="00" max="<?=htmlentities($product['stock']) ?>" value="1">
+						<input type="number" id="quantity" name="quantity" min="00" max="<?=htmlentities($product['stock']) ?>" value="1"><br>
 						<input type="submit" name="addToCart" value="Add to Cart">
 					</form>
 				
