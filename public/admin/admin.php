@@ -57,7 +57,7 @@
                          <td><?=htmlentities($user['country']) ?></td>
                          <td><?=htmlentities($user['create_date']) ?></td>
                          <td>
-                             <form action="#" method="GET">
+                             <form action="updateuser.php" method="GET">
                                  <input type="hidden" name="userId" value="<?=htmlentities($user['id']) ?>">
                                  <input type="submit" value="Updatera">
                              </form>
