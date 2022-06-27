@@ -1,3 +1,10 @@
+body {
+    background-color: beige;
+    color: rgb(69, 65, 72);
+    padding: 10px;
+    height: 100%;
+}
+
 /* Hover links */
 a:visited,a:link {
     color: 2b2b2b;
@@ -30,6 +37,7 @@ a:visited,a:link {
 
 .logo-img{
     text-align: center;
+
 }
 
 .header a{
@@ -77,4 +85,54 @@ ion-icon {
     border: 1px solid white;
     background-color: beige;
   }
+
+  .white-box{
+    width: 650px;
+    height: auto;
+    padding: 30px;
+    background-color: white;
+    text-align: center;
+    margin: 15px;
+
+  }
+  
+  input{
+    background-color: beige;
+    border: none;
+
+   }
+
+.main-box{
+    width: 100%;
+    height: auto;
+    text-align: center;
+ 
+
+}
+
+.button{
+    color: black;
+    background-color:lightpink;
+    border-color: lightpink;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 10px;
+    padding-left: 10px; 
+    border-radius: 5px;
+  }
+
+  .flex-box{
+display: flex;
+
+  }
+
+  .search-box{
+    width: 700px;
+  }
+  
+  .result-box{
+    padding: 5px;
+  }
+
+
 

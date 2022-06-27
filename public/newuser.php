@@ -98,21 +98,30 @@
     }
     }
 
-
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New user</title>
+</head>
+<body>
     
 
-
-
-?>
     <?php include('layout/header.php'); ?>                        
-
-    <h2>Go to Login </h2>
-    <form action="login.php" method="POST">
-    <input type="submit" name="newUser" value="Login">
-    </form> 
-
+    <div class="main-box">
+    <div class="white-box">
+            <legend>Go to Login </legend>
+            <form action="login.php" method="POST">
+            <input type="submit" class="button" name="newUser" value="Login">
+            </form> 
+            <br><?=$messageuser ?>
+    </div>
+    <div class="white-box">
     <div id="content">
-        <article class="border">
+    
             <form method="POST" action="#">
                 <fieldset>
                     <legend>Register here please.</legend>
@@ -169,20 +178,18 @@
                         <input type="password" class="text" name="confirmPassword">
                     </p>
                     <p>
-                        <input type="submit" name="newUserBtn" value="Registrera"> <br>
-                        <br><?=$messageuser ?>
+                        <input type="submit" class="button" name="newUserBtn" value="Register"> <br>
+
                     </p>
-                                             
-
-
 
                 </form>
                 </fieldset>
             </form>
-            
-
-            <hr>
-        </article>
+            </div>
+            </div>
     </div>
+
+    </body>
+</html>
 
 <?php include('./layout/footer.php'); ?>
