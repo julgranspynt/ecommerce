@@ -3,13 +3,13 @@
         require('../../src/functions.php'); 
         $pageTitle = "Update User";
 
-        echo "<pre>";
+        /* echo "<pre>";
         print_r($_POST);
         echo "</pre>";
 
         echo "<pre>";
         print_r($_GET);
-        echo "</pre>";
+        echo "</pre>"; */
 
 
     $message = "";
@@ -48,7 +48,7 @@
         $state->execute(); */
 
         updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password, $confirmPassword);
-       
+        $messageuser .= "User successfully updated! <br>";
     }
 
     $sql = "
@@ -72,6 +72,7 @@
                     <legend>Update User </legend>
 
                     <?=$message ?>
+                    <br><?=$messageuser ?>
                     
                     <p>
                         <label for="input1">First Name:</label> <br>
