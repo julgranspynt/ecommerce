@@ -100,8 +100,6 @@ $state->execute();
  }
 }  */
 
-<<<<<<< HEAD
-=======
 function updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password, $confirmPassword){
 
   global $pdo;
@@ -143,5 +141,4 @@ function updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $c
 
 }
 
->>>>>>> master
  ?>
