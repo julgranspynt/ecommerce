@@ -44,7 +44,7 @@
         $state->bindParam(':email', $email);
         $state->bindParam(':phone', $phone);
         $state->bindParam(':password', $encryptedPassword);
-        $state->execute();
+        $state->execute(); 
     }
 
     $sql = "

@@ -1,5 +1,5 @@
 <?php
-    // require('../src/functions.php');
+    require('../src/functions.php');
     require('../src/config.php');
     $pageTitle = "My Page";
     include('./layout/header.php');
@@ -174,14 +174,15 @@
 
 
     }
-    $sql = "
+      $sql = "
         SELECT * FROM users
         WHERE id = :id
     ";
     $state = $pdo->prepare($sql);
     $state->bindParam(':id', $_SESSION['id']);
     $state->execute();
-    $user = $state->fetch();
+    $user = $state->fetch();  
+
 ?>  
 
 
