@@ -88,7 +88,6 @@ if(!isset($_SESSION['cartItems'])) {
                     data-price="<?=htmlentities($product['price'])?>"><ion-icon  name="search-outline" class="icon"></ion-icon></a>
         </div>
 
-
         <div class="logo-img">
         <a href="./index.php"><img src="./img/LOGOwithoutcircle.png" alt="" width ="350px" height="200px"></a>
         </div>
