@@ -18,6 +18,15 @@ $message   ="";
 print_r($_SESSION);
 echo "</pre>"; */
 
+$message = "";
+if (isset($_GET['missingFields'])) {
+    $message = '
+        <div>
+            You need to fill in all fields. 
+        </div>
+    ';
+}
+
 if (!empty($_SESSION['id'])) {
     $sql = "
         SELECT * FROM users

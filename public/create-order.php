@@ -1,5 +1,6 @@
 <?php
 require('../src/config.php');
+require('../src/functions.php');
     
     echo "<pre>";
     print_r($_POST);
@@ -9,17 +10,25 @@ require('../src/config.php');
     print_r($_SESSION);
     echo "</pre>";
 
-    if (isset($_POST['createOrderBtn']) && !empty($_SESSION['cartItems'])) {
-        $firstName      = trim($_POST['firstName']);
-        $lastName       = trim($_POST['lastName']);
-        $email          = trim($_POST['email']);
-        $password       = trim($_POST['password']);
-        $street         = trim($_POST['street']);
-        $postalCode     = trim($_POST['postalCode']);
-        $phone          = trim($_POST['phone']);
-        $city           = trim($_POST['city']);
-        $country        = trim($_POST['country']);
-        $cartTotalSum   = $_POST['cartTotalSum'];
+    $firstName      = trim($_POST['firstName']);
+    $lastName       = trim($_POST['lastName']);
+    $email          = trim($_POST['email']);
+    $password       = trim($_POST['password']);
+    $street         = trim($_POST['street']);
+    $postalCode     = trim($_POST['postalCode']);
+    $phone          = trim($_POST['phone']);
+    $city           = trim($_POST['city']);
+    $country        = trim($_POST['country']);
+    $cartTotalSum   = $_POST['cartTotalSum'];
+
+    if (empty($firstName) || empty($lastName) || empty($email) || empty($password) || empty($street) || empty($postalCode) || empty($phone) || empty($city) || empty($country)) 
+    {
+        header('Location: checkout.php?missingFields');
+        exit;
+    }
+
+    else {
+        if (isset($_POST['createOrderBtn']) && !empty($_SESSION['cartItems'])) {
         
         /* FETCH IF USER EXISTS */
         $sql = "
@@ -35,26 +44,12 @@ require('../src/config.php');
 
         /* CREATE IF USER DOESN'T EXIST */
         if (empty($user)) {
-            $sql = "
-                INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country)
-                VALUES (:first_name, :last_name, :email, :password, :phone, :street, :postal_code, :city, :country)
-            ";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':first_name', $firstName);
-            $stmt->bindParam(':last_name', $lastName);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $password);
-            $stmt->bindParam(':phone', $phone);
-            $stmt->bindParam(':street', $street);
-            $stmt->bindParam(':postal_code', $postalCode);
-            $stmt->bindParam(':city', $city);
-            $stmt->bindParam(':country', $country);
-            $stmt->execute();
-            $userId = $pdo->lastInsertId();
+            insertIntoUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country);
         }
     
 
         /* CREATE ORDER */
+        /* insertIntoOrder($userId, $cartTotalSum, $firstName, $lastName, $street, $postalCode, $city, $country); */
         $sql = "
             INSERT INTO orders (user_id, total_price, billing_full_name, billing_street, billing_postal_code, billing_city, billing_country)
             VALUES (:user_id, :total_price, :billing_full_name, :billing_street, :billing_postal_code, :billing_city, :billing_country)
@@ -92,6 +87,7 @@ require('../src/config.php');
 
     header('Location: checkout.php');
     exit;
+    } 
 ?>
 
 
