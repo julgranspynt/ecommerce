@@ -26,27 +26,6 @@
         $password           = trim($_POST['password']);
         $confirmPassword    = trim($_POST['confirmPassword']);
 
-        /* $sql = " 
-        UPDATE users
-        SET  first_name = :first_name, last_name = :last_name, 
-        street = :street, postal_code = :postal_code, city = :city, 
-        country = :country, email = :email, phone = :phone, password = :password
-        WHERE id = :id ";
-
-        $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-        $state = $pdo->prepare($sql);
-        $state->bindParam(':id', $_GET["userId"]);
-        $state->bindParam(':first_name', $firstname);
-        $state->bindParam(':last_name', $lastname);
-        $state->bindParam(':street', $street);
-        $state->bindParam(':postal_code', $postalcode);
-        $state->bindParam(':city', $city);
-        $state->bindParam(':country', $country);
-        $state->bindParam(':email', $email);
-        $state->bindParam(':phone', $phone);
-        $state->bindParam(':password', $encryptedPassword);
-        $state->execute(); */
-
         updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password, $confirmPassword);
         $messageuser .= "User successfully updated! <br>";
     }

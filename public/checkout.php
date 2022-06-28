@@ -101,45 +101,45 @@ if (!empty($_SESSION['id'])) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="first-name">First name</label>
-                    <input type="text" class="form-control" name="firstName" id="first-name" placeholder="First name" value="">
+                    <input type="text" class="form-control" name="firstName" id="first-name" placeholder="First name">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="last-name">Last name</label>
-                    <input type="text" class="form-control" name="lastName" id="last-name" placeholder="Last name" value="">
+                    <input type="text" class="form-control" name="lastName" id="last-name" placeholder="Last name">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">E-mail address</label>
-                    <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="E-mail address" value="">
+                    <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="E-mail address">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password" value="">
+                    <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" name="street" id="inputAddress" placeholder="Street" value="">
+                    <input type="text" class="form-control" name="street" id="inputAddress" placeholder="Street">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputZip">Postal Code</label>
-                    <input type="text" class="form-control" name="postalCode" id="inputZip" value="">
+                    <input type="text" class="form-control" name="postalCode" id="inputZip">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="phone">Telephone</label>
-                    <input type="text" class="form-control" name="phone" id="phone" value="">
+                    <input type="text" class="form-control" name="phone" id="phone">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" name="city" id="inputCity" value="">
+                    <input type="text" class="form-control" name="city" id="inputCity">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputState">Country</label>
-                    <select name="country" class="form-control" id="inputState" value="">
+                    <select name="country" class="form-control" id="inputState">
                         <option value="se">Sweden</option>
                     </select>
                 </div>

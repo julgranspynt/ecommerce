@@ -59,7 +59,7 @@ unset($_SESSION['cartItems']);
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><b>Total: <?=$cartTotalSum?> kr</b></td>
+                    <td><b>Total: <?=$totalSum?> kr</b></td>
                 </tr>
             </tbody>
 
