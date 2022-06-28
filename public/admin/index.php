@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <h1>Admin page</h1>
 
 <a href="admin-products.php"><h2>Manage products</h2></a>
