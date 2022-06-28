@@ -76,12 +76,15 @@ a:hover {
 .blog-container{
     display: flex;
     justify-content: center;
+    margin-top: 15px;
  }
 
  #container-form {
     margin-top: 30px;
-    display: flex;
+    display: block;
     justify-content: center;
+    padding-left: 70px;
+    padding-right: 70px;
 }
 
 #title-textarea,
@@ -93,13 +96,16 @@ a:hover {
     margin-top: 10px;
     margin-bottom: 10px;
     resize: none;
-    height: 50px;
     background-color: #dddddd;
     color: #666666;
-    padding: 1em;
     border-radius: 10px;
     border: 2px solid transparent;
     outline: none;
+    }
+
+    #content-textarea{
+        padding-top: 5px;
+        padding-left: 10px;
     }
 
 #title-textarea:focus{
@@ -142,7 +148,7 @@ a:hover {
     display: block;
     text-align: center;
     margin-top: 20px;
-    margin-left: 190px;
+    margin-left: 300px;
     padding: 10px;
     width: 50%;
     font-weight: 400;
@@ -218,4 +224,9 @@ select {
 
 .img {
     border-radius: 50%;
+  }
+
+  #create-blog-form{
+    display: block;
+
   }

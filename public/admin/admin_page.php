@@ -37,11 +37,11 @@ $products = $stmt->fetchAll();
         <h1>Admin</h1>
 
         <nav id="main-nav">
-            <a href="create_product.php">Create new product</a>
+            <a href="create_product.php">Skapa ny produkt</a>
         </nav>
 
         <nav id="main-nav2">
-            <a href="#">Main page</a>
+            <a href="#">Startsida</a>
         </nav>
 
         <table class="content-table">
@@ -49,13 +49,13 @@ $products = $stmt->fetchAll();
     <thead>
          
         <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Stock</th>
+            <th>Bild</th>
+            <th>Titel</th>
+            <th>Produktbeskrivning</th>
+            <th>Pris</th>
+            <th>Lagersaldo</th>
             <th>Id</th>
-            <th>Actions</th>
+            <th>Åtgärder</th>
           <tr>
 
     

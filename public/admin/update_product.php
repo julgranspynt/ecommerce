@@ -55,6 +55,9 @@ if(empty($_POST['price'])){
 if(empty($_POST['stock'])){
     echo "<p>Du måste fylla i stock!</p>";
 }
+if(empty($_POST['uploadedFile'])){
+    echo "<p>Du måste lägga till en bild!</p>";
+}
 
 else if(empty($error)){
     
