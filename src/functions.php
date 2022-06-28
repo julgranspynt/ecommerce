@@ -153,5 +153,20 @@ function insertIntoUser($firstName, $lastName, $email, $password, $phone, $stree
 
 } */
 
+/* function insertIntoItems($orderId, $item) {
+  global $pdo;
+
+  $sql = "
+                INSERT INTO order_items (order_id, product_id, product_title, quantity, unit_price)
+                VALUES (:order_id, :product_id, :product_title, :quantity, :unit_price)
+            ";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':order_id', $orderId);
+            $stmt->bindValue(':product_id', $item['id']);
+            $stmt->bindValue(':product_title', $item['title']);
+            $stmt->bindValue(':quantity', $item['quantity']);
+            $stmt->bindValue(':unit_price', $item['price']);
+            $stmt->execute();
+} */
 
  ?>
