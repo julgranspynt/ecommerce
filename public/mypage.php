@@ -28,18 +28,20 @@
         $password           = trim($_POST['password']);
         $confirmPassword    = trim($_POST['confirmPassword']);
 
-            $sql = "
-                UPDATE users
-                SET password = :password
-                WHERE id = :id
-            ";
+            // $sql = "
+            //     UPDATE users
+            //     SET password = :password
+            //     WHERE id = :id
+            // ";
 
-            $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-            $state = $pdo->prepare($sql);
-            $state->bindParam(':id', $encryptedPassword);
-            $state->bindParam(':password', $encryptedPassword);
-            $state->execute();
-            $user = $state->fetch();
+            // $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+            // $state = $pdo->prepare($sql);
+            // $state->bindParam(':id', $encryptedPassword);
+            // $state->bindParam(':password', $encryptedPassword);
+            // $state->execute();
+            // $user = $state->fetch();
+
+            $user = UpdateUserPassword($password,$encryptedPassword);
 
             $message .= '
                 <div class="">
@@ -156,15 +158,7 @@
 
         }
 
-
-      $sql = "
-        SELECT * FROM users
-        WHERE id = :id
-    ";
-    $state = $pdo->prepare($sql);
-    $state->bindParam(':id', $_SESSION['id']);
-    $state->execute();
-    $user = $state->fetch();  
+    $user = FetchUserBySession();
 
 ?>  
 

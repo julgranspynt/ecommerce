@@ -30,17 +30,8 @@
         $messageuser .= "User successfully updated! <br>";
     }
 
-    $sql = "
-    SELECT * FROM users
-    WHERE id = :id
-    ";
-    $state = $pdo->prepare($sql);
-    $state->bindParam(':id', $_GET ["userId"]);
-    $state->execute();
-    $user = $state->fetch();
+    $user = FetchUser();
     
-    
-
 ?>
 <?php include('./layout/header.php'); ?>
 <?php ?>

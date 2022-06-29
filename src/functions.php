@@ -192,7 +192,7 @@ function deleteOrder() {
   ";
   $state = $pdo->prepare($sql);
   $state->bindParam(':id', $_POST['orderId']);
-  $state->execute();
+  return $state->execute();
 
 }
 

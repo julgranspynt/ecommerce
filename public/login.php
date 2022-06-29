@@ -36,15 +36,7 @@
         $email    = trim($_POST['email']);
         $password = trim($_POST['password']);
 
-        $sql = "
-            SELECT * FROM users
-            WHERE email = :email
-        ";
-
-        $state = $pdo->prepare($sql);
-        $state->bindParam(':email', $email);
-        $state->execute();
-        $user = $state->fetch();
+        $user = FetchUserByEmail($email);
 
         /* echo "<pre>";
         print_r($user);

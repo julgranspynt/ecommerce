@@ -9,14 +9,7 @@ if (!empty($_POST['quantity'])) {
     print_r($_POST);
     echo "</pre>"; */
 
-    $sql="
-        SELECT * FROM products
-        WHERE id = :id;
-    ";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id', $productId);
-    $stmt->execute();
-    $product = $stmt->fetch();
+    $product = FetchProductCart($productId);
 
     /* echo "<pre>";
     print_r($product);

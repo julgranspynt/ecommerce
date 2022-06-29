@@ -31,14 +31,8 @@ require('../src/functions.php');
         if (isset($_POST['createOrderBtn']) && !empty($_SESSION['cartItems'])) {
         
         /* FETCH IF USER EXISTS */
-        $sql = "
-            SELECT * FROM users
-            WHERE email = :email;
-        ";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        $user = $stmt->fetch();
+        
+        $user = FetchUserByEmail($email);
         $userId= isset($user['id']) ? $user['id'] : null;
 
 
@@ -85,18 +79,8 @@ require('../src/functions.php');
 
 
         foreach ($_SESSION['cartItems'] as $item) {
-            $sql = "
-                INSERT INTO order_items (order_id, product_id, product_title, quantity, unit_price)
-                VALUES (:order_id, :product_id, :product_title, :quantity, :unit_price)
-            ";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':order_id', $orderId);
-            $stmt->bindValue(':product_id', $item['id']);
-            $stmt->bindValue(':product_title', $item['title']);
-            $stmt->bindValue(':quantity', $item['quantity']);
-            $stmt->bindValue(':unit_price', $item['price']);
-            $stmt->execute();
-           
+            Createorder($orderId,$item);
+
         }
 
         header('Location: order-confirmation.php');
