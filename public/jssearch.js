@@ -49,48 +49,28 @@ async function addSearchResult(e) {
     
             for (product of products)['products'] 
             html+=`
-            <table>
+            
       
    
             <form id="search-form" method="POST">
 
             </form>
+          
+                    <b>Id: </b>${product['id']};<br><br>
+                    <b>Title: </b>${product['title']};<br><br>
+                    <b>Price: </b>${product['price']};<br><br>
+                    <b>Description: </b>${product['description']};<br><br>
+                    <b>Stock: </b>${product['stock']};<br><br>
+                    <img src="./admin/${product['img_url']}" width="200px"><br><br>
+                    <a class="button botton-width" href="./products.php">Go to products</a>
+
             </div>
-            </div>
-            <thead>
-                <tr>
-                    <b><th>Id:</th></b>
-                    <b><th>Title:</th></b>
-                    <b><th>Price:</th></b>
-                    <b><th>Description:</th></b>
-                    <b><th>Stock:</th></b>
-                  </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>${product['id']}</td>
-                <td>${product['title']}</td>
-                <td>${product['price']}</td>
-                <td>${product['description']}</td>
-                <td>${product['stock']}</td>
-              
-           
-            </div>
-            </tr>
-            </tbody>
-            <tbody>
-                <td><img src="./admin/${product['img_url']}" width="150px"></td>
-                <td><a class="button botton-width" href="./products.php">Go to products</a></td>
-                
-            </tbody>
-            </table>
+
            `  
             }
             $('#submitSearch').html(html);
         }
         
-      
-        // <td><a class="button botton-width" href="./products.php/${product['id']}">Go to products</a></td>
 
         async function deleteAccount(e) {
             e.preventDefault();

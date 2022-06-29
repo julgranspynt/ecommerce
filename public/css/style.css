@@ -3,6 +3,10 @@ body {
     color: rgb(69, 65, 72);
     padding: 10px;
     height: 100%;
+    /* align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: auto; */
 }
 
 /* Hover links */
@@ -106,13 +110,13 @@ button {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: white;
     width: 400px;
     max-height: 500px;
     z-index: 1;
     right: 25px;
     font-size: 12px;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 15px;
 }
 
@@ -161,17 +165,16 @@ ul.product-row {
 
 div.checkout {
     width: 100%;
-    text-align: center;
     display: block;
 }
 
 a.checkoutBtn {
-    background-color: pink;
-    color: white;
-    padding: 14px 25px;
+    background-color: lightpink;
+    color: black;
+    padding: 10px 25px;
+    border-radius: 5px;
     text-align: center;
     text-decoration: none;
-    border-radius: 25px;
     display: inline-block;
 }
   .white-box{
@@ -183,6 +186,11 @@ a.checkoutBtn {
     margin: 15px;
 
   }
+  .space-box{
+    width: 100px;
+    height: 50px;
+    background-color: black;
+  }
   
   input{
     background-color: beige;
@@ -190,11 +198,35 @@ a.checkoutBtn {
 
    }
 
-.main-box{
+.main-box-login{
     width: 100%;
     height: auto;
+    align-items: center;
     text-align: center;
- 
+    padding-left: 400px;
+}
+.main-box-mypage{
+    width: 100%;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    padding-left: 70px;
+
+}
+.main-box-register{
+    width: 100%;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    padding-left: 400px;
+
+}
+.main-box-product{
+    width: 100%;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    padding-left: 270px;
 
 }
 
@@ -208,6 +240,16 @@ a.checkoutBtn {
     padding-left: 10px; 
     border-radius: 5px;
   }
+.search.button{
+    color: black;
+    background-color:lightpink;
+    border-color: lightpink;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 10px;
+    padding-left: 10px; 
+    border-radius: 5px;
+}
 
   .flex-box{
 display: flex;
@@ -221,6 +263,15 @@ display: flex;
   .result-box{
     padding: 5px;
   }
+
+  .search-div{
+    margin: 15px;
+    background-color: beige;
+  }
+
+  .search-header {
+    padding:15px; 
+ }
 
 
 
