@@ -20,7 +20,7 @@
          <?=$message ?>
 
          <nav id="main-nav">
-            <form action="#" method="POST">
+            <form action="../products.php" method="POST">
             	<input type="submit" value="Create new order">
             </form>
          </nav>
