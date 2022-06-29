@@ -104,76 +104,32 @@
         if (empty($message)) {
             updateInformation($phone, $street, $postalCode, $city, $country);
 
-            // $message .= '
-            //     <div>
-            //     Update success.
-            //     </div>
-            // ';
+             $message .= '
+                 <div>
+                 Update success.
+                 </div>
+             ';
         }
+    }
+
 
     if(isset($_POST['newPasswordBtn'])) {
-        $oldpassword = trim($_POST['oldpassword']);
-        $newpassword = trim($_POST['newpassword']);
-        $confirmnewpassword = trim($_POST['confirmnewpassword']);
+        $password           = trim($_POST['newpassword']);
+        $confirmPassword    = trim($_POST['confirmnewpassword']);
+            updatePassword($password);
+            $message .= '
 
-        selectPassword();
+                <div class="">
 
-        if ( !password_verify($oldpassword, $currentpassword['password']) ) {
-            $message = '
-                <div>
-                    The old password is incorrect.
+                    Password has been updated.
+
                 </div>
-            ';
-        } else {
-            if (empty($newpassword)) {
-                $message .= '
-                    <div>
-                    Please fill in new password.
-                    </div>
-                ';
-            }
-            
-            if (empty($confirmnewpassword)) {
-                $message .= '
-                    <div>
-                    Please confirm your new password.
-                    </div>
-                ';
-            }
-    
-            if (!empty($confirmnewpassword) && !empty($newpassword) && $newpassword !== $confirmnewpassword) {
-                $message .= '
-                    <div>
-                        "Password" and "Confirm password" dont match, please try again!
-                    </div>
-                ';
-            } 
-            
-              if (empty($message)) {
-                $encryptedPassword = password_hash($newpassword, PASSWORD_BCRYPT, ['cost' => 12]);
-                $sql = "
-                 UPDATE users
-                 SET
-                 password = :password
-                 WHERE id = :id
-                ";
-                 $state = $pdo->prepare($sql);
-                 $state->bindParam(":password", $encryptedPassword);
-                 $state->bindParam(':id', $_SESSION['id']);
-                $state->execute();
 
-                $message .= '
-                    <div>
-                    Update success.
-                    </div>
-                '; 
-            } 
+            ';
+
         }
 
-    }
 
-
-    }
       $sql = "
         SELECT * FROM users
         WHERE id = :id
@@ -290,7 +246,7 @@
                
         
             </div>
-
+            <?php include('./layout/footer.php'); ?>
 
 
             
