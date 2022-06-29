@@ -106,11 +106,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time();?>">
     <title>New user</title>
 </head>
 <body>
                          
-    <div class="main-box">
+    <div class="main-box-newuser">
     <div class="white-box">
             <legend>Go to Login </legend>
             <form action="login.php" method="POST">
@@ -192,3 +193,8 @@
 </html>
 
 <?php include('./layout/footer.php'); ?>
+
+<script>
+
+if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}
+</script> 
