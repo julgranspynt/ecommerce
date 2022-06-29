@@ -7,6 +7,13 @@ require('../../src/config.php');
 
 // Uppdatera produkt
 
+$error1 = "";
+$error2 = "";
+$error3 = "";
+$error4 = "";
+$error    = "";
+$success="";
+
 if (isset($_POST['updateBtn'])) {
     $title          = trim($_POST['title']);
     $description    = trim($_POST['description']);
@@ -69,37 +76,15 @@ if (isset($_POST['updateBtn'])) {
     
     $isTheFileUploaded = move_uploaded_file($fileTempPath, $newFilePath);
    
-    $sql = "
-            UPDATE products
-            SET title = :title, description = :description, price = :price, stock =:stock, img_url= :uploadedFile
-            WHERE id = :id
-        ";
-
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $_GET['productId']);
-        $stmt->bindParam(':title', $title);
-        $stmt->bindParam(':description', $description);
-        $stmt->bindParam(':price', $price);
-        $stmt->bindParam(':stock', $stock);
-        $stmt->bindParam(':uploadedFile', $newFilePath);
-        $stmt->execute();
+    UpdateProduct($title,$description,$price,$stock,$newFilePath);
 
         $success = '<div class="alert alert-success" role="alert">
-                        Produkten har lagts till (:
+                        Produkten har Uppdaterats till (:
                         </div>';
 
 }}
-/**
- * Hämta  Produkt */
 
- $sql = "
-    SELECT * FROM products
-    WHERE id = :id
-";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':id', $_GET['productId']);
-$stmt->execute();
-$product = $stmt->fetch();
+    $product = FetchProduct();
 
 ?>
 
@@ -109,6 +94,9 @@ $product = $stmt->fetch();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -129,36 +117,39 @@ $product = $stmt->fetch();
             <label for="">Title:</label>
             <input type="text" name="title" id="title-textarea" value= "<?=htmlentities($product['title']) ?>" maxlength="50">
             <div id="form-messages-title">
-            
+            <?php echo $error1?>
             </div>
 
             <label for="">Description:</label>
             <textarea name="description" id="content-textarea" ><?=htmlentities($product['description']) ?></textarea>
             <div id="form-messages-description">
-            
+            <?php echo $error2?>
             </div>
            
             <label for="">Price:</label>
             <input type="text" name="price" id="title-textarea" value= "<?=htmlentities($product['price']) ?>" maxlength="50">
             <div id="form-messages-price">
-            
+            <?php echo $error3?>
             </div>
             
             <label for="">Stock:</label>
             <input type="text" name="stock" id="author-textarea" value= "<?=htmlentities($product['stock']) ?>" maxlength="50">
             <div id="form-messages-stock">
-            
+            <?php echo $error4?>
             </div>
             
             <label>Photo:</label> 
 		    <input type="file" name="uploadedFile" value= "<?$product['img_url']?>">
             <div id="form-messages-image">
-            
+          
             </div>
 
+            <br>
+
             <div id="form-messages-success">
-            
+            <?php echo $success?>
             </div>
+          
 
             <input class= "button" name= "updateBtn" type="submit" value="Update">
             <a href="admin-products.php">&#x2190; back</a>
@@ -167,7 +158,7 @@ $product = $stmt->fetch();
         </form>
     </div>
      <!-- Bootstrap -->
-     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
