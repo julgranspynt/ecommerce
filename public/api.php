@@ -1,9 +1,9 @@
 <?php 
 require('../src/dbconnect.php');
 
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
 
 $sql = "SELECT * FROM products";
 $state = $pdo->query($sql);
@@ -15,4 +15,3 @@ $data = [
 ];
 
 echo json_encode($data);
-?>

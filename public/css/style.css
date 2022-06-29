@@ -94,8 +94,9 @@ ion-icon {
     text-align: center;
     margin: 15px;
 
+
   }
-  
+
   input{
     background-color: beige;
     border: none;
@@ -103,9 +104,10 @@ ion-icon {
    }
 
 .main-box{
+    justify-content: center;
     width: 100%;
     height: auto;
-    text-align: center;
+    
  
 
 }

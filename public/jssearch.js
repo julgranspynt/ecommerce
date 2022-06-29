@@ -1,4 +1,4 @@
-$('#deleteForm').on('submit', deleteAccount); 
+    
     $('#updateModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
     var title = button.data('title'); 
@@ -19,7 +19,6 @@ $('#deleteForm').on('submit', deleteAccount);
   })
 
 document.querySelector('#search-form').addEventListener('submit', addSearchResult);
-
 
 async function addSearchResult(e) {
     e.preventDefault();
@@ -91,23 +90,3 @@ async function addSearchResult(e) {
         
       
         // <td><a class="button botton-width" href="./products.php/${product['id']}">Go to products</a></td>
-
-        async function deleteAccount(e) {
-            e.preventDefault();
-        
-            const formData = new FormData(e.target);
-            formData.set('deleteBtn', true);
-        
-            try {
-                await fetch('../src/app/API.php', {
-                    method: 'POST',
-                    
-                    body: formData
-                });
-        
-                window.location.replace("login.php?deleted");
-                
-            } catch(error) {
-                console.log(error);
-            }
-        }

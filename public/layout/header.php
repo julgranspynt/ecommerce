@@ -36,11 +36,12 @@ if(isset($_POST['matchProduct'])) {
         <a href="./mypage.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>
         <a href="./logout.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>
         <a href="./cart.php"><ion-icon  name="cart-outline" class="icon"></ion-icon></i></a>
-        <a type="button" class="" data-toggle="modal" 
-                  data-target="#updateModal"data-id="<?=htmlentities($product['id'])?>"  data-title="<?=htmlentities($key['title'])?>"  
+        <a type="button"data-toggle="modal" 
+                  data-target="#updateModal"data-id="<?=htmlentities($product['id'])?>" data-title="<?=htmlentities($key['title'])?>"  
                   data-description="<?=htmlentities($product['description'])?>" 
                   data-stock="<?=htmlentities($product['stock'])?>" 
-                  data-price="<?=htmlentities($product['price'])?>"><ion-icon  name="search-outline" class="icon"></ion-icon></a>
+                  data-price="<?=htmlentities($product['price'])?>">
+                  <ion-icon  name="search-outline" class="icon"></ion-icon></a>
         </div>
 
 
@@ -53,24 +54,21 @@ if(isset($_POST['matchProduct'])) {
 </div>
 </nav>
 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog" role="document" width="600px">
         <div class="modal-content">
           <div class="modal-header">
-            <h2>Search for a product </h2>
+            <legend>Search for a product </legend>
           </div>
     <table>
 
-    
+  
     <form id="search-form" method="POST">
         <input type="text"  placeholder="Enter product name" name="product" /></br>
-        <button type="submit" id="submitSearch" name="matchProduct">Submit</button>
+        
+        <div><button type="submit" class="button"  name="matchProduct" >Submit</button></div>
+        <div id="submitSearch" class="search-box"></div>
     </form><br>
-
-    <form>  
-    <div class="modal-footer">
-        <button type="button" class="button botton-width" data-dismiss="modal">Close</button>
-    </div>
-    </form>
+    
   </div>
   </div>
  
