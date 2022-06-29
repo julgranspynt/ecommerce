@@ -1,9 +1,12 @@
 * {
     box-sizing: border-box;
 }
+.bg-beige{
+    background-color: beige;
+}
 
 body {
-    background-color: rgb(253, 253, 226);
+    background-color: beige;
 }
 
 #container {
@@ -13,6 +16,9 @@ body {
 
 input {
     padding: 10px;
+}
+.img-field{
+    background-color: white;
 }
 
 form a {
@@ -100,7 +106,7 @@ a:link {
     margin-top: 10px;
     margin-bottom: 10px;
     resize: none;
-    background-color: #dddddd;
+    background-color: white;
     color: #666666;
     border-radius: 10px;
     border: 2px solid transparent;
@@ -157,19 +163,26 @@ a:link {
     font-weight: 400;
     text-decoration: none;
     font-size: 1.25rem;
-    background-color: #000;
+    background-color: #c6cc99;;
     color: white;
     border-radius: 30px;
     transition: transform 0.3s ease;
 }
 
-.buttons{
+.delButton{
+    /* background-color: #a8ae82; */
+    background-color: #c6cc99;
+}
+.updButton{
     /* background-color: #a8ae82; */
     background-color: #c6cc99;
 }
 
-.buttons:hover {
-    background-color: beige;
+.delButton:hover {
+   color: beige;
+}
+.updButton:hover {
+   color: beige;
 }
 
 .big-button {
@@ -187,6 +200,7 @@ a:link {
     border-radius: 30px;
     transition: transform 0.3s ease;
 }
+
 
 .button:after,
 .button:before {
@@ -242,3 +256,5 @@ select {
     display: block;
 
   }
+
+

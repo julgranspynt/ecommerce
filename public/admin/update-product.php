@@ -99,7 +99,7 @@ if (isset($_POST['updateBtn'])) {
 
 </head>
 
-<body>
+<body class= "bg-beige">
    <div class="blog-container">
     <h1>Update Product</h1>
         </div>
@@ -139,7 +139,7 @@ if (isset($_POST['updateBtn'])) {
             </div>
             
             <label>Photo:</label> 
-		    <input type="file" name="uploadedFile" value= "<?$product['img_url']?>">
+		    <input type="file" name="uploadedFile" class="img-field" value= "<?$product['img_url']?>">
             <div id="form-messages-image">
           
             </div>

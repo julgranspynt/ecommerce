@@ -58,7 +58,7 @@ $products = FetchAllProducts();
                             <td>
                                 <form action="update-product.php" method="GET">
                                     <input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-                                    <input type="submit" value="Update">
+                                    <input type="submit" class="updbutton" value="Update">
                                 </form>
 
                                 <form id="delete-form" action="" method="POST">

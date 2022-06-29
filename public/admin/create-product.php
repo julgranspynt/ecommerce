@@ -8,7 +8,7 @@
 
 </head>
 
-<body>
+<body class= "bg-beige">
     
    <div class="blog-container">
    
@@ -47,7 +47,7 @@
             </div>
 
             <label>Image:</label> 
-		    <input type="file" name="uploadedFile">
+		    <input type="file"class="img-field" name="uploadedFile">
             <br><br>
             <div id="form-messages-image">
             
