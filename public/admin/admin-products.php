@@ -49,12 +49,12 @@ $products = $stmt->fetchAll();
     <thead>
          
         <tr>
+            <th>Id</th>
             <th>Image</th>
             <th>Title</th>
             <th>Description</th>
             <th>Price</th>
             <th>Stock</th>
-            <th>Id</th>
             <th>Actions</th>
           <tr>
 
@@ -65,21 +65,21 @@ $products = $stmt->fetchAll();
           
           <?php foreach($products as $product) : ?>
                         <tr>
+                            <td><?=htmlentities($product['id']) ?></td>
                             <td><img src="<?=$product['img_url']?>"height="100" width="100"></td>
                             <td><?=htmlentities($product['title']) ?></td>
                             <td><?=htmlentities($product['description']) ?></td>
                             <td><?=htmlentities($product['price']) ?></td>
                             <td><?=htmlentities($product['stock']) ?></td>
-                            <td><?=htmlentities($product['id']) ?></td>
                             <td>
                                 <form action="update-product.php" method="GET">
                                     <input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-                                    <input type="submit" value="Updatera">
+                                    <input type="submit" class="buttons" value="Updatera">
                                 </form>
 
                                 <form action="" method="POST">
                                     <input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-                                    <input type="submit" name="deleteBtn" value="Radera">
+                                    <input type="submit" class="buttons" name="deleteBtn" value="Radera">
                                 </form>
                             </td>
                         
