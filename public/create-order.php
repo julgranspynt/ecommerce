@@ -44,8 +44,8 @@ require('../src/functions.php');
 
         /* CREATE IF USER DOESN'T EXIST */
         if (empty($user)) {
-            /* $userId = insertIntoUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country); */
-            $sql = "
+            $userId = insertIntoUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country);
+            /* $sql = "
                 INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country)
                 VALUES (:first_name, :last_name, :email, :password, :phone, :street, :postal_code, :city, :country)
             ";
@@ -62,13 +62,13 @@ require('../src/functions.php');
             $stmt->bindParam(':city', $city);
             $stmt->bindParam(':country', $country);
             $stmt->execute();
-            $userId = $pdo->lastInsertId();
+            $userId = $pdo->lastInsertId(); */
         }
     
 
         /* CREATE ORDER */
-        /* insertIntoOrder($userId, $cartTotalSum, $firstName, $lastName, $street, $postalCode, $city, $country); */
-        $sql = "
+        $orderId = insertIntoOrder($userId, $cartTotalSum, $firstName, $lastName, $street, $postalCode, $city, $country);
+        /* $sql = "
             INSERT INTO orders (user_id, total_price, billing_full_name, billing_street, billing_postal_code, billing_city, billing_country)
             VALUES (:user_id, :total_price, :billing_full_name, :billing_street, :billing_postal_code, :billing_city, :billing_country)
         ";
@@ -81,7 +81,7 @@ require('../src/functions.php');
         $stmt->bindValue(':billing_city', $city);
         $stmt->bindValue(':billing_country', $country);
         $stmt->execute();
-        $orderId = $pdo->lastInsertId();
+        $orderId = $pdo->lastInsertId(); */
 
 
         foreach ($_SESSION['cartItems'] as $item) {

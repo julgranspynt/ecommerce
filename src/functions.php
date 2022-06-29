@@ -132,13 +132,11 @@ function insertIntoUser($firstName, $lastName, $email, $password, $phone, $stree
             $stmt->bindParam(':city', $city);
             $stmt->bindParam(':country', $country);
             $stmt->execute();
-
-            $userId = $pdo->lastInsertId();
-            /* return = $stmt->lastInsertId(); */
+            return $pdo->lastInsertId();
 
 }
 
-/* function insertIntoOrder($userId, $cartTotalSum, $firstName, $lastName, $street, $postalCode, $city, $country) {
+function insertIntoOrder($userId, $cartTotalSum, $firstName, $lastName, $street, $postalCode, $city, $country) {
   global $pdo;
 
   $sql = "
@@ -154,9 +152,9 @@ function insertIntoUser($firstName, $lastName, $email, $password, $phone, $stree
         $stmt->bindValue(':billing_city', $city);
         $stmt->bindValue(':billing_country', $country);
         $stmt->execute();
-        $orderId = $pdo->lastInsertId();
+        return $pdo->lastInsertId();
 
-} */
+}
 
 /* function insertIntoItems($orderId, $item) {
   global $pdo;
