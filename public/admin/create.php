@@ -53,7 +53,7 @@ require('../../src/config.php');
 
         }
         
-        // Validering om formulär fylls i
+    // Validering om formulär fylls i
     
     if(empty($_POST['title'])){
         $error1 = '<div class="alert alert-danger" role="alert">
@@ -82,21 +82,7 @@ require('../../src/config.php');
     else if(empty($error)){
         $isTheFileUploaded = move_uploaded_file($fileTempPath, $newFilePath);
 
-        global $pdo;
-        
-        $sql = "
-                INSERT INTO products (title, description, price, stock,img_url)
-                VALUES (:title, :description, :price, :stock,:uploadedFile);
-            ";
-
-
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':title', $title);
-            $stmt->bindParam(':description', $description);
-            $stmt->bindParam(':price', $price);
-            $stmt->bindParam(':stock', $stock);
-            $stmt->bindParam(':uploadedFile', $newFilePath);
-            $stmt->execute();
+        CreateProduct($title,$description,$price,$stock,$newFilePath);
 
             $success = '<div class="alert alert-success" role="alert">
                         Produkten har lagts till (:
@@ -106,9 +92,7 @@ require('../../src/config.php');
     
 }
 
-$sql = "SELECT * FROM products;";
-$stmt = $pdo->query($sql);
-$products = $stmt->fetchAll();
+$products = FetchAllProducts();
 
 $data = [
     'error1'       => $error1,

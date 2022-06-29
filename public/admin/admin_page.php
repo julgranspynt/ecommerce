@@ -4,10 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require('../../src/config.php');
 
-// Hämta Data
-$sql = "SELECT * FROM products;";
-$stmt = $pdo->query($sql);
-$products = $stmt->fetchAll();
+$products = FetchAllProducts();
 
 ?>
 

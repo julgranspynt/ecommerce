@@ -69,37 +69,15 @@ if (isset($_POST['updateBtn'])) {
     
     $isTheFileUploaded = move_uploaded_file($fileTempPath, $newFilePath);
    
-    $sql = "
-            UPDATE products
-            SET title = :title, description = :description, price = :price, stock =:stock, img_url= :uploadedFile
-            WHERE id = :id
-        ";
-
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $_GET['productId']);
-        $stmt->bindParam(':title', $title);
-        $stmt->bindParam(':description', $description);
-        $stmt->bindParam(':price', $price);
-        $stmt->bindParam(':stock', $stock);
-        $stmt->bindParam(':uploadedFile', $newFilePath);
-        $stmt->execute();
+    UpdateProduct($title,$description,$price,$stock,$newFilePath);
 
         $success = '<div class="alert alert-success" role="alert">
                         Produkten har lagts till (:
                         </div>';
 
 }}
-/**
- * Hämta  Produkt */
 
- $sql = "
-    SELECT * FROM products
-    WHERE id = :id
-";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':id', $_GET['productId']);
-$stmt->execute();
-$product = $stmt->fetch();
+    $product = FetchProduct();
 
 ?>
 
