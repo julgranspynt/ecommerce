@@ -1,11 +1,5 @@
 <?php
 require('../src/config.php');
-require('../src/dbconnect.php');
-
-
-// echo "<pre>";
-// print_r($_GET);
-// echo "</pre>";
 
 $products="";
 

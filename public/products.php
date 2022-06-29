@@ -6,7 +6,7 @@ include('./layout/header.php');
 	$pageTitle = "All products";
     $pageId    = "products";
 
-$products = FetchAllProducts();
+$products = $productDbHandler->FetchAllProducts();
 
 ?>
 

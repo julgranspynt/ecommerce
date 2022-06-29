@@ -4,20 +4,6 @@ include('layout/header.php');
 
 $message   ="";
 
-/* Om GET parametern "missingRequiredFields" existerar if (isset($_GET["missingRequiredFields"])) {}, visa felmeddelandet "Alla fält behöver fyllas i för att genomföra orderköpet"
- */
-/* if (isset($_GET['missingRequiredFields'])) {
-        $message = '
-            <div>
-                All fields need to be filled 
-            </div>
-        ';
-} */
-
-/* echo "<pre>";
-print_r($_SESSION);
-echo "</pre>"; */
-
 $message = "";
 if (isset($_GET['missingFields'])) {
     $message = '
@@ -28,18 +14,7 @@ if (isset($_GET['missingFields'])) {
 }
 
 if (!empty($_SESSION['id'])) {
-    $sql = "
-        SELECT * FROM users
-        WHERE id = :id
-    ";
-    $state = $pdo->prepare($sql);
-    $state->bindParam(':id', $_SESSION['id']);
-    $state->execute();
-    $user = $state->fetch();
-
-    /* echo "<pre>";
-    print_r($user);
-    echo "</pre>"; */
+    $user = $userDbHandler->FetchUserBySession();
 }
 
 ?>

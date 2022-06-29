@@ -9,7 +9,7 @@ if (!empty($_POST['quantity'])) {
     print_r($_POST);
     echo "</pre>"; */
 
-    $product = FetchProductCart($productId);
+    $product = $productDbHandler->FetchProductCart($productId);
 
     /* echo "<pre>";
     print_r($product);

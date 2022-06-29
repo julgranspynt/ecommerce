@@ -1,5 +1,4 @@
 <?php
-    require('../src/functions.php');
     require('../src/config.php');
     $pageTitle = "My Page";
     include('./layout/header.php');
@@ -17,10 +16,13 @@
     
 
     if (isset($_POST['deleteUserBtn'])) {
-        deleteUsers();
+        $userDbHandler->deleteUsers();
 
-        header("Location: logout.php");
-        
+        $_SESSION = [];
+        session_destroy();
+
+        header("Location: login.php?userDeleted");
+        exit;
 
     }
 
@@ -28,20 +30,7 @@
         $password           = trim($_POST['password']);
         $confirmPassword    = trim($_POST['confirmPassword']);
 
-            // $sql = "
-            //     UPDATE users
-            //     SET password = :password
-            //     WHERE id = :id
-            // ";
-
-            // $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-            // $state = $pdo->prepare($sql);
-            // $state->bindParam(':id', $encryptedPassword);
-            // $state->bindParam(':password', $encryptedPassword);
-            // $state->execute();
-            // $user = $state->fetch();
-
-            $user = UpdateUserPassword($password,$encryptedPassword);
+            $user = $userDbHandler->updatePassword($password);
 
             $message .= '
                 <div class="">
@@ -73,7 +62,7 @@
 		}
 
         if (empty($message)) {
-            updateUsersFnLn($firstName, $lastName);
+            $userDbHandler->updateUsersFnLn($firstName, $lastName);
 
             $message .= '
                 <div>
@@ -131,7 +120,7 @@
 		}
 
         if (empty($message)) {
-            updateInformation($phone, $street, $postalCode, $city, $country);
+            $userDbHandler->updateInformation($phone, $street, $postalCode, $city, $country);
 
              $message .= '
                  <div>
@@ -142,23 +131,8 @@
     }
 
 
-    if(isset($_POST['newPasswordBtn'])) {
-        $password           = trim($_POST['newpassword']);
-        $confirmPassword    = trim($_POST['confirmnewpassword']);
-            updatePassword($password);
-            $message .= '
 
-                <div class="">
-
-                    Password has been updated.
-
-                </div>
-
-            ';
-
-        }
-
-    $user = FetchUserBySession();
+    $user = $userDbHandler->FetchUserBySession();
 
 ?>  
 

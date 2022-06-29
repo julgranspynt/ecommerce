@@ -50,25 +50,25 @@ if (isset($_POST['updateBtn'])) {
     
     if(empty($_POST['title'])){
         $error1 = '<div class="alert alert-danger" role="alert">
-                    Du måste fylla i en titel!
+                    You must fill in title. 
                     </div>';
     }
     
     if(empty($_POST['description'])){
         $error2 = '<div class="alert alert-danger" role="alert">
-                    Du måste fylla i en produktbeskrivning!
+                    You must fill in description. 
                     </div>';
     }
 
     if(empty($_POST['price'])){
         $error3 = '<div class="alert alert-danger" role="alert">
-                    Du måste fylla i ett pris!
+                    You must fill in price. 
                     </div>';
     }
 
     if(empty($_POST['stock'])){
         $error4 = '<div class="alert alert-danger" role="alert">
-                    Du måste fylla i lagersaldo!
+                    You must fill in stock field.
                     </div>';
     }
 
@@ -76,15 +76,15 @@ if (isset($_POST['updateBtn'])) {
     
     $isTheFileUploaded = move_uploaded_file($fileTempPath, $newFilePath);
    
-    UpdateProduct($title,$description,$price,$stock,$newFilePath);
+    $productDbHandler->UpdateProduct($title,$description,$price,$stock,$newFilePath);
 
         $success = '<div class="alert alert-success" role="alert">
-                        Produkten har Uppdaterats till (:
+                        Product successfully updated.
                         </div>';
 
 }}
 
-    $product = FetchProduct();
+    $product = $productDbHandler->FetchProduct();
 
 ?>
 

@@ -24,6 +24,7 @@
         ';
     }
 
+
     if (isset($_GET['logout'])) {
         $message = '
             <div>
@@ -32,11 +33,19 @@
         ';
     }
 
+    if (isset($_GET['userDeleted'])) {
+    $message = '
+        <div>
+            User successfully deleted.
+        </div>
+    ';
+}
+
     if (isset($_POST['loginBtn'])) {
         $email    = trim($_POST['email']);
         $password = trim($_POST['password']);
 
-        $user = FetchUserByEmail($email);
+        $user = $userDbHandler->FetchUserByEmail($email);
 
         /* echo "<pre>";
         print_r($user);

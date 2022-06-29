@@ -5,7 +5,7 @@ require('../src/config.php');
 // print_r($_POST);
 // echo "</pre>";
 
-$products = FetchProductAPI();
+$products = $productDbHandler->FetchProductAPI();
 
 $data = [
      'products' => $products

@@ -1,6 +1,10 @@
 <?
 $products="";
 
+/* echo "<pre>";
+print_r($_SESSION['email']);
+echo "</pre>";  */
+
 if(isset($_POST['matchProduct'])) {
 
     $search = $_POST['product'];
@@ -47,7 +51,7 @@ if(!isset($_SESSION['cartItems'])) {
 
           <a href="./mypage.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>    
           
-          <?php if( $_SESSION['email']): ?>
+          <?php  if (isset($_SESSION['email'])): ?>
               <a href="./logout.php"><ion-icon  name="log-out-outline" class="icon"></ion-icon></a>
           <?php else: ?>
               <a href="./login.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>

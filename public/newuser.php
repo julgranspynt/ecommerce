@@ -1,6 +1,7 @@
 <?php
     require('../src/config.php');
-    require('../src/app/myFunctionsEmma.php');
+    include('layout/header.php');
+
     $pageTitle = "New User";
     // $pageId    = "register";
     // echo "<pre>";
@@ -82,7 +83,7 @@
 
         } else {
             try {
-                newUser($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password);
+                $userDbHandler->newUser($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password);
                 $messageuser .= "Welcome, you can now login! <br>";
             } catch (\PDOException $e) {
                 if ((int) $e->getCode() === 23000) {
@@ -108,9 +109,7 @@
     <title>New user</title>
 </head>
 <body>
-    
-
-    <?php include('layout/header.php'); ?>                        
+                         
     <div class="main-box">
     <div class="white-box">
             <legend>Go to Login </legend>
