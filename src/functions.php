@@ -169,4 +169,28 @@ function insertIntoUser($firstName, $lastName, $email, $password, $phone, $stree
             $stmt->execute();
 } */
 
+function fetchAllOrders() {
+  global $pdo;
+  
+  $sql = "SELECT * FROM orders;";
+  $state = $pdo->query($sql);
+  return $state->fetchAll();
+
+}
+
+
+
+function deleteOrder() {
+  global $pdo;
+  
+  $sql = "
+  DELETE FROM orders 
+  WHERE id = :id;
+  ";
+  $state = $pdo->prepare($sql);
+  $state->bindParam(':id', $_POST['orderId']);
+  $state->execute();
+
+}
+
  ?>
