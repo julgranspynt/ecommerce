@@ -11,9 +11,18 @@
  $users = $userDbHandler->fetchAllUsers();
 
 ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage users</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
+
+<body>
  <div>
-     <article>
+    <div id="container2">
          <h1>Manage users</h1>
 
          <?=$message ?>
@@ -31,7 +40,7 @@
 
             <br>
          
-         <table>
+         <table class="content-table">
              <thead>
                  <tr>
                      <th>id</th>
@@ -46,9 +55,9 @@
                      <th>Country</th>
                      <th>Registered since </th>
                      <th>Handle</th>
-                 </tr>
+                 <tr>
              </thead>
-             <tbody>
+             <tbody id="data">
                  <?php foreach($users as $user) : ?>
                      <tr>
                          <td><?=htmlentities($user['id']) ?></td>
@@ -78,6 +87,8 @@
                  <?php endforeach; ?>
              </tbody>
          </table>
-            
-     </article>
- </div>
+        </div>
+         </body>
+        </html>
+
+ 

@@ -11,9 +11,16 @@
  $orders = $orderDbHandler->fetchAllOrders();
 
 ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage orders</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
  <div>
-     <article>
+ <div id="container">
          <h1>Manage orders</h1>
 
          <?=$message ?>
@@ -31,7 +38,7 @@
 
             <br>
          
-         <table>
+         <table class="content-table">
              <thead>
                  <tr>
                      <th>Order id</th>
@@ -43,7 +50,7 @@
                      <th>Manage</th>
                  </tr>
              </thead>
-             <tbody>
+             <tbody  id="data" >
                 <?php foreach($orders as $order) : ?>
                     <tr>
                         <td><?=htmlentities($order['id']) ?></td>
@@ -72,5 +79,5 @@
              </tbody>
          </table>
             
-     </article>
+                </div>
  </div>
