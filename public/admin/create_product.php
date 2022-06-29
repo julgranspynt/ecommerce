@@ -12,41 +12,41 @@
     
    <div class="blog-container">
    
-   <h1>Skapa Product</h1>
+   <h1>Create new Product</h1>
         </div>
     
         <div id="container-form">
 
         <form id="create-blog-form" method="POST" action="create.php" enctype="multipart/form-data">
     
-            <label for="input1">Titel:</label>
-            <input type="text" name="title" id="title-textarea" placeholder="Ange titel" maxlength="50">
+            <label for="input1">Title:</label>
+            <input type="text" name="title" id="title-textarea" placeholder="Enter title" maxlength="50">
             <div id="form-messages-title">
             
             </div>
             
             
 
-            <label for="input2">Produktbeskrivning:</label>
-            <textarea name="description" id="content-textarea" placeholder="Ange en produktbeskrivning"></textarea>
+            <label for="input2">Description:</label>
+            <textarea name="description" id="content-textarea" placeholder="Enter a description"></textarea>
             <div id="form-messages-description">
             
             </div>
            
-            <label for="input3">Pris:</label>
-            <input name="price" id="price-textarea" placeholder="Ange ett pris">
+            <label for="input3">Price:</label>
+            <input name="price" id="price-textarea" placeholder="Enter a price">
             <div id="form-messages-price">
             
             </div>
             
 
-            <label for="input4">Lagersaldo:</label>
-            <input type="text" name="stock" id="author-textarea" placeholder= "Ange ett lagersaldo"maxlength="50">
+            <label for="input4">Stock:</label>
+            <input type="text" name="stock" id="author-textarea" placeholder= "Enter stock"maxlength="50">
             <div id="form-messages-stock">
             
             </div>
 
-            <label>Bild:</label> 
+            <label>Image:</label> 
 		    <input type="file" name="uploadedFile">
             <br><br>
             <div id="form-messages-image">
@@ -57,9 +57,9 @@
             </div>
 
 
-            <input class= "button" name= "createBtn" type="submit" value="Skapa">
+            <input class= "button" name= "createBtn" type="submit" value="Create">
 
-            <a href="admin_page.php">&#x2190; Gå tillbaka</a>
+            <a href="admin_page.php">&#x2190; Go back</a>
         </form>
 
 

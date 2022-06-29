@@ -5,14 +5,8 @@ async function addProductEvent(e){
 
     const formData = new FormData(e.target);
     formData.set('createBtn', true);
-    // console.log(formData.get('createBtn'));
-    // console.log(formData.get('title'));
-    // console.log(formData.get('description'));
-    // console.log(formData.get('price'));
-    // console.log(formData.get('stock'));
-    // console.log(formData.get('uploadedFile'));
-   
-   
+
+
     try {
         const response = await fetch('create.php', {
             method: 'POST',
@@ -20,8 +14,6 @@ async function addProductEvent(e){
         });
 
         const data = await response.json();
-        console.log(data);
-        console.log(data['products']);
 
     $('#form-messages-success').html(data['success']);
     $('#form-messages-title').html(data['error1']);
@@ -35,6 +27,8 @@ async function addProductEvent(e){
         console.log(error);
     }
 };
+
+
 
 
 

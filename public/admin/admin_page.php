@@ -4,7 +4,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require('../../src/config.php');
 
-
 // Ta bort Data
 
 if (isset($_POST['deleteBtn'])) {
@@ -37,11 +36,11 @@ $products = $stmt->fetchAll();
         <h1>Admin</h1>
 
         <nav id="main-nav">
-            <a href="create_product.php">Skapa ny produkt</a>
+            <a href="create_product.php">Create new product</a>
         </nav>
 
         <nav id="main-nav2">
-            <a href="#">Startsida</a>
+            <a href="#">Main page</a>
         </nav>
 
         <table class="content-table">
@@ -49,13 +48,13 @@ $products = $stmt->fetchAll();
     <thead>
          
         <tr>
-            <th>Bild</th>
-            <th>Titel</th>
-            <th>Produktbeskrivning</th>
-            <th>Pris</th>
-            <th>Lagersaldo</th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
             <th>Id</th>
-            <th>Åtgärder</th>
+            <th>Actions</th>
           <tr>
 
     
@@ -64,7 +63,7 @@ $products = $stmt->fetchAll();
           <tbody id="data">
           
           <?php foreach($products as $product) : ?>
-                        <tr>
+                        <tr id="delete<?php echo $product['id'] ?>">
                             <td><img src="<?=$product['img_url']?>"height="100" width="100"></td>
                             <td><?=htmlentities($product['title']) ?></td>
                             <td><?=htmlentities($product['description']) ?></td>
@@ -74,12 +73,12 @@ $products = $stmt->fetchAll();
                             <td>
                                 <form action="update_product.php" method="GET">
                                     <input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-                                    <input type="submit" value="Updatera">
+                                    <input type="submit" value="Update">
                                 </form>
 
-                                <form action="" method="POST">
+                                <form id="delete-form" action="" method="POST">
                                     <input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-                                    <input type="submit" name="deleteBtn" value="Radera">
+                                    <input type="submit" name="deleteBtn" value="Delete">
                                 </form>
                             </td>
                         
@@ -90,6 +89,9 @@ $products = $stmt->fetchAll();
         </table>
         
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 </body>
 </html>
 </body>

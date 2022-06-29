@@ -31,35 +31,41 @@ if (isset($_POST['updateBtn'])) {
             
             $isFileTypeAllowed = array_search($fileType, $allowedFileTypes, true);
             if ($isFileTypeAllowed === false) {
-               echo $error = "The file type is invalid. Allowed types are jpeg, png, gif. <br>";
+                $error =  '<div class="alert alert-danger" role="alert">
+                             The file type is invalid. Allowed types are jpeg, png, gif.
+                            </div>';
             }    
             
 
         }
+        
+        // Validering om formulär fylls i
     
+    if(empty($_POST['title'])){
+        $error1 = '<div class="alert alert-danger" role="alert">
+                    Du måste fylla i en titel!
+                    </div>';
+    }
     
-    // Validering om formulär fylls i
+    if(empty($_POST['description'])){
+        $error2 = '<div class="alert alert-danger" role="alert">
+                    Du måste fylla i en produktbeskrivning!
+                    </div>';
+    }
 
-if(empty($_POST['title'])){
-    echo "<p>Du måste fylla i en titel!</p>";
-}
+    if(empty($_POST['price'])){
+        $error3 = '<div class="alert alert-danger" role="alert">
+                    Du måste fylla i ett pris!
+                    </div>';
+    }
 
-if(empty($_POST['description'])){
-    echo "<p>Du måste fylla i en description!</p>";
-}
+    if(empty($_POST['stock'])){
+        $error4 = '<div class="alert alert-danger" role="alert">
+                    Du måste fylla i lagersaldo!
+                    </div>';
+    }
 
-if(empty($_POST['price'])){
-    echo "<p>Du måste fylla i price!</p>";
-}
-
-if(empty($_POST['stock'])){
-    echo "<p>Du måste fylla i stock!</p>";
-}
-if(empty($_POST['uploadedFile'])){
-    echo "<p>Du måste lägga till en bild!</p>";
-}
-
-else if(empty($error)){
+    else if(empty($error)){
     
     $isTheFileUploaded = move_uploaded_file($fileTempPath, $newFilePath);
    
@@ -78,11 +84,11 @@ else if(empty($error)){
         $stmt->bindParam(':uploadedFile', $newFilePath);
         $stmt->execute();
 
-        echo "<p>Sucsess!</p>";
+        $success = '<div class="alert alert-success" role="alert">
+                        Produkten har lagts till (:
+                        </div>';
 
 }}
-
-
 /**
  * Hämta  Produkt */
 
@@ -113,8 +119,6 @@ $product = $stmt->fetch();
         <div id="container-form">
 
         <form id="create-blog-form" method="POST" action="#" enctype="multipart/form-data">
-            
-        <fieldset>
 
         <div>
             <img src="<?=$product['img_url']?>"height="200" width="350">
@@ -124,24 +128,51 @@ $product = $stmt->fetch();
             
             <label for="">Title:</label>
             <input type="text" name="title" id="title-textarea" value= "<?=htmlentities($product['title']) ?>" maxlength="50">
+            <div id="form-messages-title">
+            
+            </div>
 
             <label for="">Description:</label>
             <textarea name="description" id="content-textarea" ><?=htmlentities($product['description']) ?></textarea>
+            <div id="form-messages-description">
             
+            </div>
+           
             <label for="">Price:</label>
             <input type="text" name="price" id="title-textarea" value= "<?=htmlentities($product['price']) ?>" maxlength="50">
+            <div id="form-messages-price">
+            
+            </div>
             
             <label for="">Stock:</label>
             <input type="text" name="stock" id="author-textarea" value= "<?=htmlentities($product['stock']) ?>" maxlength="50">
-
+            <div id="form-messages-stock">
+            
+            </div>
+            
             <label>Photo:</label> 
-		    <input type="file" name="uploadedFile" value= "<?=htmlentities($product['img_url']) ?>">
+		    <input type="file" name="uploadedFile" value= "<?$product['img_url']?>">
+            <div id="form-messages-image">
+            
+            </div>
+
+            <div id="form-messages-success">
+            
+            </div>
 
             <input class= "button" name= "updateBtn" type="submit" value="Update">
             <a href="admin_page.php">&#x2190; back</a>
-        </fieldset>
+
         
         </form>
     </div>
+     <!-- Bootstrap -->
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    
+    <!-- Custom JS -->
+    <!-- <script src="js/update.js"></script> -->
 </body>
 </html>
