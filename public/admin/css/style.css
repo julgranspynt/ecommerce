@@ -158,7 +158,8 @@ a:visited, a:link{
 }
 
 .buttons{
-    background-color: pink;
+    /* background-color: #a8ae82; */
+    background-color: #c6cc99;
 }
 
 .buttons:hover{
