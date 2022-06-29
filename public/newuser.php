@@ -111,7 +111,7 @@
     
 
     <?php include('layout/header.php'); ?>                        
-    <div class="main-box">
+    <div class="main-box-register">
     <div class="white-box">
             <legend>Go to Login </legend>
             <form action="login.php" method="POST">
@@ -119,6 +119,7 @@
             </form> 
             <br><?=$messageuser ?>
     </div>
+    
     <div class="white-box">
     <div id="content">
     

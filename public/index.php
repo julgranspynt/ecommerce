@@ -30,7 +30,7 @@ include('./layout/header.php');
 		<div class="some-products">
       <br>
       <br>
-			<h2>Organic powder mixes of fruits & veggies - mix into water, plant-milk or a smoothie</h2>
+			<legend>Organic powder mixes of fruits & veggies - mix into water, plant-milk or a smoothie</legend>
 			<div class="product-div" style="height: 300px;">
 
 			<div class="product-column"><img src="img/Calmgurkmeja.png" height="350px" width="auto"></div>
@@ -40,17 +40,19 @@ include('./layout/header.php');
 				
 		</div>
     <div class="text-div">
-      <div class="text-column"><b><h3>Gurkmeja Latte för<br> Immunförsvar Boost</h3></b></div>
-      <div class="text-column"><b><h3>Collagen Booster för<br> Hud, Hår & Naglar</h3></b></div>
-      <div class="text-column"><b><h3>Superfood för <br>hormonbalans</h3></b></div>
-      <div class="text-column"><b><h3>Matcha Latte för<br> Ökad Fokus och Energi</h3></b></div>
+      <div class="text-column"><b><legend>Gurkmeja Latte för<br> Immunförsvar Boost</legend></b></div>
+      <div class="text-column"><b><legend>Collagen Booster för<br> Hud, Hår & Naglar</legend></b></div>
+      <div class="text-column"><b><legend>Superfood för <br>hormonbalans</legend></b></div>
+      <div class="text-column"><b><legend>Matcha Latte för<br> Ökad Fokus och Energi</legend></b></div>
     </div>
  <br>
  <br>
  <br>
  <br>
+ <br>
+ <br>
 
-		  <h3><a class="button" href="products.php">View all our products</a></h3>
+		  <legend><a class="button" href="products.php">View all our products</a></legend>
     
     <br>
     <br>

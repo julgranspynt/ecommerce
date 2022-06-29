@@ -74,7 +74,7 @@
 <body>
 
 
-<div class="main-box">
+<div class="main-box-login">
 <div class="white-box">
 <legend>Login</legend>
 

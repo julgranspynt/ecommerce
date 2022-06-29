@@ -179,7 +179,7 @@
 <?=$message?>
 <hr>
 
-<div class="main-box">
+<div class="main-box-mypage">
 <div class="flex-box">
 <div class="white-box">
 
