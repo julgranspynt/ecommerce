@@ -21,22 +21,6 @@ function fetchAllUsers() {
 
 }
 
-
-
-function selectPassword() {
-  global $pdo;
-  $sql = "
-       SELECT password FROM users
-        WHERE id = :id
-        ";
-        $state = $pdo->prepare($sql);
-        $state->bindParam(':id', $_SESSION['id']);
-        $state->execute();
-        $currentpassword = $state->fetch();
-
-}
-
-
  function updateUsersFnLn($firstName, $lastName) {
   global $pdo;
   $sql = "
@@ -78,6 +62,25 @@ $state->bindParam(':country', $country);
 $state->execute();
 
 } 
+
+ function updatePassword ($password) {
+
+  global $pdo;
+  $sql = "
+                UPDATE users
+                SET password = :password
+                WHERE id = :id
+
+            ";
+
+            $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+            $state = $pdo->prepare($sql);
+            $state->bindParam(':id', $_SESSION['id']);
+            $state->bindParam(':password', $encryptedPassword); 
+            $state->execute();
+            $user = $state->fetch();
+}
+ 
 
 function updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password, $confirmPassword){
 

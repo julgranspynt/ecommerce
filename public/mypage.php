@@ -131,27 +131,41 @@
         if (empty($message)) {
             updateInformation($phone, $street, $postalCode, $city, $country);
 
-            // $message .= '
-            //     <div>
-            //     Update success.
-            //     </div>
-            // ';
+             $message .= '
+                 <div>
+                 Update success.
+                 </div>
+             ';
         }
-    
-
     }
 
 
-    
+    if(isset($_POST['newPasswordBtn'])) {
+        $password           = trim($_POST['newpassword']);
+        $confirmPassword    = trim($_POST['confirmnewpassword']);
+            updatePassword($password);
+            $message .= '
 
-    $sql = "
+                <div class="">
+
+                    Password has been updated.
+
+                </div>
+
+            ';
+
+        }
+
+
+      $sql = "
         SELECT * FROM users
         WHERE id = :id
     ";
     $state = $pdo->prepare($sql);
     $state->bindParam(':id', $_SESSION['id']);
     $state->execute();
-    $user = $state->fetch();
+    $user = $state->fetch();  
+
 ?>  
 
 <!DOCTYPE html>

@@ -127,7 +127,6 @@
                     <legend>Register here please.</legend>
 
                     <?=$message ?>
-                    <br><?=$messageuser ?>
                     
                     <p>
                         <label for="input1">First Name:</label> <br>
