@@ -94,12 +94,12 @@
                     </p>
 
                     <p>
-                        <label for="input2">Password:</label> <br>
+                        <label for="input2">New password:</label> <br>
                         <input type="password" class="text" name="password">
                     </p>
 
                     <p>
-                        <label for="input2">Confirm Password:</label> <br>
+                        <label for="input2">Confirm new password:</label> <br>
                         <input type="password" class="text" name="confirmPassword">
                     </p>
                     <p>

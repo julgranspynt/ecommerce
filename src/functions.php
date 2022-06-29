@@ -129,7 +129,9 @@ function insertIntoUser($firstName, $lastName, $email, $password, $phone, $stree
             $stmt->bindParam(':city', $city);
             $stmt->bindParam(':country', $country);
             $stmt->execute();
+
             $userId = $pdo->lastInsertId();
+            /* return = $stmt->lastInsertId(); */
 
 }
 

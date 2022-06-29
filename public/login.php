@@ -65,14 +65,26 @@
                 </div>
             ';
         }
-
-
     }
 
 
 ?>
 
-<h2>Login</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time();?>">
+    <title>Login</title>
+</head>
+<body>
+
+
+<div class="main-box">
+<div class="white-box">
+<legend>Login</legend>
 
 <?=$message?>
 
@@ -81,12 +93,24 @@
     <br>
     <input type="password" name="password" placeholder="Password"><br>
     <br>
-    <input type="submit" name="loginBtn" value="Login">
+    <input class="button" type="submit" name="loginBtn" value="Login">
 </form>
-
-<h2>New user? </h2>
+</div>
+<div class="white-box">
+<legend>New user?</legend>
 <form action="newuser.php" method="POST">
-    <input type="submit" name="newUser" value="Register">
+    <input class="button" type="submit" name="newUser" value="Register">
 </form>
+</div>
+
+
+</div>
 
 <?php include('./layout/footer.php'); ?>
+    
+</body>
+</html>
+<script>
+
+if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}
+</script> 

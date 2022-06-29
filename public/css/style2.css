@@ -171,13 +171,8 @@ span {
     margin-bottom: 10px;
 }
 
-.button{
-    color: black;
-    background-color:lightpink;
-    border-color: lightpink;
-    padding: 10px;
-    border-radius: 5px;
-}
+
+
 
 .product-div{
     margin-top: 50px;
@@ -222,3 +217,6 @@ tr,
 button.btn {
     border: 1px solid rgba(61, 51, 51, 0.8);
 }
+
+
+
