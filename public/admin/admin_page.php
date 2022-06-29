@@ -4,18 +4,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require('../../src/config.php');
 
-// Ta bort Data
-
-if (isset($_POST['deleteBtn'])) {
-    $sql = "
-        DELETE FROM products 
-        WHERE id = :id;
-    ";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id', $_POST['productId']);
-    $stmt->execute();
-}
-
 // Hämta Data
 $sql = "SELECT * FROM products;";
 $stmt = $pdo->query($sql);
@@ -63,7 +51,7 @@ $products = $stmt->fetchAll();
           <tbody id="data">
           
           <?php foreach($products as $product) : ?>
-                        <tr id="delete<?php echo $product['id'] ?>">
+                        <tr id="data_products">
                             <td><img src="<?=$product['img_url']?>"height="100" width="100"></td>
                             <td><?=htmlentities($product['title']) ?></td>
                             <td><?=htmlentities($product['description']) ?></td>
@@ -78,7 +66,7 @@ $products = $stmt->fetchAll();
 
                                 <form id="delete-form" action="" method="POST">
                                     <input type="hidden" name="productId" value="<?=htmlentities($product['id']) ?>">
-                                    <input type="submit" name="deleteBtn" value="Delete">
+                                    <input type="submit" name="deleteBtn" class="delbutton" id="<?php echo $product['id'] ?>" value="Delete">
                                 </form>
                             </td>
                         
@@ -91,8 +79,9 @@ $products = $stmt->fetchAll();
     </div>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/delete.js"></script>
 
-</body>
+  </body>
 </html>
 </body>
 </html>
