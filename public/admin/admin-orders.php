@@ -1,15 +1,14 @@
 <?
  require('../../src/config.php');
- require('../../src/functions.php'); 
 
  $message = "";
 
  if (isset($_POST['deleteOrderBtn'])) {
-    deleteOrder();
+    $orderDbHandler->deleteOrder();
     
  }
 
- $orders = fetchAllOrders();
+ $orders = $orderDbHandler->fetchAllOrders();
 
 ?>
 

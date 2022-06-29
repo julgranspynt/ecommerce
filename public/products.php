@@ -6,13 +6,7 @@ include('./layout/header.php');
 	$pageTitle = "All products";
     $pageId    = "products";
 
-//READ
-$stmt =$pdo->query("SELECT * FROM products;");
-$products = $stmt->fetchAll();
-
-//echo "<pre>";
-//print_r($_GET);
-//echo "</pre>";  
+$products = $productDbHandler->FetchAllProducts();
 
 ?>
 

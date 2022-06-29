@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require('../../src/config.php');
 
-$products = FetchAllProducts();
+$products = $productDbHandler->FetchAllProducts();
 
 ?>
 

@@ -1,6 +1,5 @@
 <?php
 require('../src/config.php');
-require('../src/functions.php');
     
     echo "<pre>";
     print_r($_POST);
@@ -31,72 +30,26 @@ require('../src/functions.php');
         if (isset($_POST['createOrderBtn']) && !empty($_SESSION['cartItems'])) {
         
         /* FETCH IF USER EXISTS */
-        $sql = "
-            SELECT * FROM users
-            WHERE email = :email;
-        ";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        $user = $stmt->fetch();
+        
+        $user = $userDbHandler->FetchUserByEmail($email);
         $userId= isset($user['id']) ? $user['id'] : null;
 
 
         /* CREATE IF USER DOESN'T EXIST */
         if (empty($user)) {
-            $userId = insertIntoUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country);
-            /* $sql = "
-                INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country)
-                VALUES (:first_name, :last_name, :email, :password, :phone, :street, :postal_code, :city, :country)
-            ";
-
-            $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':first_name', $firstName);
-            $stmt->bindParam(':last_name', $lastName);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $encryptedPassword);
-            $stmt->bindParam(':phone', $phone);
-            $stmt->bindParam(':street', $street);
-            $stmt->bindParam(':postal_code', $postalCode);
-            $stmt->bindParam(':city', $city);
-            $stmt->bindParam(':country', $country);
-            $stmt->execute();
-            $userId = $pdo->lastInsertId(); */
+            $userId = $userDbHandler->insertIntoUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country);
+            
         }
     
 
         /* CREATE ORDER */
-        $orderId = insertIntoOrder($userId, $cartTotalSum, $firstName, $lastName, $street, $postalCode, $city, $country);
-        /* $sql = "
-            INSERT INTO orders (user_id, total_price, billing_full_name, billing_street, billing_postal_code, billing_city, billing_country)
-            VALUES (:user_id, :total_price, :billing_full_name, :billing_street, :billing_postal_code, :billing_city, :billing_country)
-        ";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':user_id', $userId);
-        $stmt->bindValue(':total_price', $cartTotalSum);
-        $stmt->bindValue(':billing_full_name', $firstName . " " . $lastName);
-        $stmt->bindValue(':billing_street', $street);
-        $stmt->bindValue(':billing_postal_code', $postalCode);
-        $stmt->bindValue(':billing_city', $city);
-        $stmt->bindValue(':billing_country', $country);
-        $stmt->execute();
-        $orderId = $pdo->lastInsertId(); */
+        $orderId = $orderDbHandler->insertIntoOrder($userId, $cartTotalSum, $firstName, $lastName, $street, $postalCode, $city, $country);
+        
 
 
         foreach ($_SESSION['cartItems'] as $item) {
-            $sql = "
-                INSERT INTO order_items (order_id, product_id, product_title, quantity, unit_price)
-                VALUES (:order_id, :product_id, :product_title, :quantity, :unit_price)
-            ";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':order_id', $orderId);
-            $stmt->bindValue(':product_id', $item['id']);
-            $stmt->bindValue(':product_title', $item['title']);
-            $stmt->bindValue(':quantity', $item['quantity']);
-            $stmt->bindValue(':unit_price', $item['price']);
-            $stmt->execute();
-           
+            $orderDbHandler->createOrder($orderId,$item);
+
         }
 
         header('Location: order-confirmation.php');

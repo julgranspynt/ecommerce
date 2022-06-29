@@ -5,20 +5,7 @@ include('./layout/header.php');
     $pageTitle = "Product";
     $pageId    = "products";
 
-// READ
-$sql = "
-  SELECT * FROM products
-  WHERE id = :id
-";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':id', $_GET['id']);
-$stmt->execute();
-$product = $stmt->fetch();
-  //echo 'Product';
-  //echo "<pre>";
-  //print_r($product);
-  //echo "</pre>";
-
+$product = $productDbHandler->FetchProductProductPage();
 
 ?>
 

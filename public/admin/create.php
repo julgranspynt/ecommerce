@@ -82,7 +82,7 @@ require('../../src/config.php');
     else if(empty($error)){
         $isTheFileUploaded = move_uploaded_file($fileTempPath, $newFilePath);
 
-        CreateProduct($title,$description,$price,$stock,$newFilePath);
+        $productDbHandler->CreateProduct($title,$description,$price,$stock,$newFilePath);
 
             $success = '<div class="alert alert-success" role="alert">
                         Produkten har lagts till (:
@@ -92,7 +92,7 @@ require('../../src/config.php');
     
 }
 
-$products = FetchAllProducts();
+$products = $productDbHandler->FetchAllProducts();
 
 $data = [
     'error1'       => $error1,

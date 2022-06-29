@@ -1,6 +1,5 @@
 <?php
         require('../../src/config.php');
-        require('../../src/functions.php'); 
         $pageTitle = "Update User";
 
         /* echo "<pre>";
@@ -13,6 +12,7 @@
 
 
     $message = "";
+    $messageuser = "";
     $error     ="";
     if (isset($_POST['updateUserBtn'])) {
         $firstname          = trim($_POST['first_name']);
@@ -26,23 +26,14 @@
         $password           = trim($_POST['password']);
         $confirmPassword    = trim($_POST['confirmPassword']);
 
-        updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password, $confirmPassword);
-        $messageuser .= "User successfully updated! <br>";
+        $userDbHandler->updateUsersAdmin($firstname, $lastname, $street, $postalcode, $city, $country, $email, $phone, $password, $confirmPassword);
+        $messageuser = "User successfully updated! <br>";
     }
 
-    $sql = "
-    SELECT * FROM users
-    WHERE id = :id
-    ";
-    $state = $pdo->prepare($sql);
-    $state->bindParam(':id', $_GET ["userId"]);
-    $state->execute();
-    $user = $state->fetch();
+    $user = $userDbHandler->FetchUser();
     
-    
-
 ?>
-<?php include('./layout/header.php'); ?>
+
 <?php ?>
         <article class="border">
             <form method="POST" action="#">
@@ -114,4 +105,3 @@
 
 <?php ?>
         
-<?php include('./layout/footer.php'); ?>

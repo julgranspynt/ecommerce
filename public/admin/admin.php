@@ -1,15 +1,14 @@
 <?
  require('../../src/config.php');
- require('../../src/functions.php'); 
 
-  $message = "";
+ $message = "";
 
  if (isset($_POST['deleteUserBtn'])) {
-     deleteUsers();
+    $userDbHandler->deleteUsers();
     
  }
 
- $users = fetchAllUsers();
+ $users = $userDbHandler->fetchAllUsers();
 
 ?>
 
