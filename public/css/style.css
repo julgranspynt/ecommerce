@@ -229,6 +229,14 @@ a.checkoutBtn {
     padding-left: 270px;
 
 }
+.main-box-newuser{
+    width: 100%;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    padding-left: 400px;
+
+}
 
 .button{
     color: black;
