@@ -1,5 +1,5 @@
-$('#deleteForm').on('submit', deleteAccount); 
-    $('#updateModal').on('show.bs.modal', function (event) {
+// $('#deleteForm').on('submit', deleteAccount); 
+$('#updateModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
     var title = button.data('title'); 
     var description = button.data('description'); 
@@ -31,7 +31,7 @@ async function addSearchResult(e) {
     
     try {
         
-        const response = await fetch('api.php', {
+        const response = await fetch('api.php?productId', {
             method: 'POST', body: formData
         });
         const data = await response.json();
@@ -43,51 +43,51 @@ async function addSearchResult(e) {
     catch(error) {
        console.log(error);
    }
+
+
     var product = "";
     function submitSearch(products){
-        html="";
+         html="";
     
-            for (product of products)['products'] 
+            for (product of products)
             html+=`
             
       
    
             <form id="search-form" method="POST">
 
-            </form>
+            </form> 
           
                     <b>Id: </b>${product['id']};<br><br>
                     <b>Title: </b>${product['title']};<br><br>
                     <b>Price: </b>${product['price']};<br><br>
                     <b>Description: </b>${product['description']};<br><br>
-                    <b>Stock: </b>${product['stock']};<br><br>
+                    <b>Stock: </b>${product['stock']};<br>
                     <img src="./admin/${product['img_url']}" width="200px"><br><br>
-                    <a class="button botton-width" href="./products.php">Go to products</a>
+                    <a class="button botton-width" href="./products.php"> Go to products</a>
 
-            </div>
 
-           `  
+           ` 
             }
             $('#submitSearch').html(html);
         }
         
 
-        async function deleteAccount(e) {
-            e.preventDefault();
+        // async function deleteAccount(e) {
+        //     e.preventDefault();
         
-            const formData = new FormData(e.target);
-            formData.set('deleteBtn', true);
+        //     const formData = new FormData(e.target);
+        //     formData.set('deleteBtn', true);
         
-            try {
-                await fetch('../src/app/API.php', {
-                    method: 'POST',
+        //     try {
+        //         await fetch('api.php', {
+        //             method: 'POST',
                     
-                    body: formData
-                });
+        //             body: formData
+        //         });
         
-                window.location.replace("login.php?deleted");
+        //         window.location.replace("login.php?deleted");
                 
-            } catch(error) {
-                console.log(error);
-            }
-        }
+        //     } catch(error) {
+        //         console.log(error);
+        //     }

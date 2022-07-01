@@ -11,17 +11,17 @@ if(isset($_POST['matchProduct'])) {
     $param = "%$search%";
    
    
-    $sql = "SELECT * FROM products WHERE title LIKE :title ORDER BY id ";
+    $sql = "SELECT * FROM products WHERE id LIKE :id ORDER BY id ";
 
 
     $state = $pdo->prepare($sql);
     $state->bindParam(":title", $param);
     $state->execute();
-    $products = $state->fetchALL();
+    $products = $state->fetchById($Id);
 
-        $data = [
-            'products' => $products
-        ];
+   //     $data = [
+    //        'products' => $products
+    //    ];
 }
 
 if(!isset($_SESSION['cartItems'])) {
