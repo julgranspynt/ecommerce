@@ -17,7 +17,7 @@ if(isset($_POST['matchProduct'])) {
     $state = $pdo->prepare($sql);
     $state->bindParam(":title", $param);
     $state->execute();
-    $products = $state->fetchAll();
+    $products = $state->fetchALL();
 
         $data = [
             'products' => $products
@@ -63,7 +63,7 @@ if(!isset($_SESSION['cartItems'])) {
             <div class="dropdown-content" id="myDropdown">
         
                 <div>
-                  <h5>Cart items: </h5>
+                  <legend> Cart items: </legend>
                 </div>
         
                 <ul class="product-row">
@@ -106,22 +106,23 @@ if(!isset($_SESSION['cartItems'])) {
     </div>
 </nav>
 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2>Search for a product </h2>
+      <div class="modal-dialog " role="document">
+        <div class="modal-content search-header">
+          <div class="modal-header" >
+            <legend>Search for a product </legend>
           </div>
-    <table>
+  
 
     
-    <form id="search-form" method="POST">
-        <input type="text"  placeholder="Enter product name" name="product" /></br>
-        <button type="submit" id="submitSearch" name="matchProduct">Submit</button>
+    <form id="search-form"  method="POST">
+        <input type="text" placeholder="Enter product name" name="product"/></br><br>
+        <div><button type="submit"  class="button" name="matchProduct">Submit</button></div>
+        <div id="submitSearch"  class="search-div"></div>
     </form><br>
 
     <form>  
     <div class="modal-footer">
-        <button type="button" class="button botton-width" data-dismiss="modal">Close</button>
+        <button type="button" class="button" data-dismiss="modal">Close</button>
     </div>
     </form>
   </div>
@@ -130,7 +131,6 @@ if(!isset($_SESSION['cartItems'])) {
 
 <html>
 <body>
-</table>
 
 </div>
 </div>

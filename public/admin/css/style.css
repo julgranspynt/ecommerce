@@ -106,8 +106,8 @@ a:link {
     margin-top: 10px;
     margin-bottom: 10px;
     resize: none;
-    background-color: white;
-    color: #666666;
+    background-color: #eaeaea;
+    color: #000000;
     border-radius: 10px;
     border: 2px solid transparent;
     outline: none;
@@ -257,4 +257,12 @@ select {
 
   }
 
+  #container2{
+    margin: 20px auto;
+    width: 1539px;
+  }
 
+  .blog-container2{
+  justify-content: center;
+  margin-top: 15px;
+}

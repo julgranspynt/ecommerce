@@ -38,8 +38,8 @@ if (!empty($_SESSION['id'])) {
                 <tr>
                     <th style="width:15%">Image</th>
                     <th style="width:50%">Item</th>
-                    <th style="width:15%">Price per product</th>
-                    <th style="width:10%">Quantity</th>
+                    <th style="width:20%">Price per product</th>
+                    <th style="width:5%">Quantity</th>
                     <th style="width:10%"></th>
                     
                 </tr>
@@ -76,69 +76,70 @@ if (!empty($_SESSION['id'])) {
             </tbody>
         </table>
 
-        <h3>Billing Address</h3>
+        <div class="form-box">
+            <h3>Billing Address</h3>
 
-        <?=$message ?>
-
-        <form action="create-order.php" method="POST">
-            <input type="hidden" name="cartTotalSum" value="<?=$cartTotalSum?>">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="first-name">First name</label>
-                    <input type="text" class="form-control" name="firstName" id="first-name" placeholder="First name">
+            <?=$message ?>
+        
+            <form action="create-order.php" method="POST">
+                <input type="hidden" name="cartTotalSum" value="<?=$cartTotalSum?>">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First name</label>
+                        <input type="text" class="form-control" name="firstName" id="first-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last name</label>
+                        <input type="text" class="form-control" name="lastName" id="last-name">
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="last-name">Last name</label>
-                    <input type="text" class="form-control" name="lastName" id="last-name" placeholder="Last name">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputEmail4">E-mail address</label>
+                        <input type="email" class="form-control" name="email" id="inputEmail4">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" class="form-control" name="password" id="inputPassword4">
+                    </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">E-mail address</label>
-                    <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="E-mail address">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" name="street" id="inputAddress">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputZip">Postal Code</label>
+                        <input type="text" class="form-control" name="postalCode" id="inputZip">
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Telephone</label>
+                        <input type="text" class="form-control" name="phone" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" name="city" id="inputCity">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputState">Country</label>
+                        <input class="form-control" name="country" id="inputState">
+                    </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" name="street" id="inputAddress" placeholder="Street">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                            I have read and agreed to the terms and conditions.
+                        </label>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputZip">Postal Code</label>
-                    <input type="text" class="form-control" name="postalCode" id="inputZip">
+                <div>
+                    <input type="submit" name="createOrderBtn" class="button">
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="phone">Telephone</label>
-                    <input type="text" class="form-control" name="phone" id="phone">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" name="city" id="inputCity">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputState">Country</label>
-                    <select name="country" class="form-control" id="inputState">
-                        <option value="se">Sweden</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        I have read and agreed to the terms and conditions.
-                    </label>
-                </div>
-            </div>
-            <div>
-                <input type="submit" name="createOrderBtn">
-            </div>
+            </form>
+        </div>    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
