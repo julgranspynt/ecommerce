@@ -248,7 +248,7 @@ a.checkoutBtn {
     padding-left: 10px; 
     border-radius: 5px;
   }
-.search.button{
+.search-button{
     color: black;
     background-color:lightpink;
     border-color: lightpink;
@@ -264,22 +264,33 @@ display: flex;
 
   }
 
-  .search-box{
-    width: 700px;
-  }
-  
-  .result-box{
-    padding: 5px;
-  }
-
   .search-div{
+    width: 440px;
     margin: 15px;
+    height: 450px;
     background-color: beige;
   }
+  .modal-header{
+    background-color: beige;
+  }
+ 
 
-  .search-header {
+  .modal-content {
     padding:15px; 
+    height: 700px;
+    background-color: white;
  }
+ #show_up{
+    width: 200px;
+    height: 200px;
+    border: none;
+    display: none;
+}
+#show_up a{
+    border-bottom: none;
+    display: block;
+    padding: 5px;
+}
 
 
 

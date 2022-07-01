@@ -70,11 +70,11 @@ class ProductDbHandler {
     }
 
 
-    public function FetchProductAPI(){
-        $sql = "SELECT * FROM products";
-        $state = $this->pdo->query($sql);
-        return $state->fetchALL();
-    }
+    // public function FetchProductAPI(){
+    //     $sql = "SELECT * FROM products";
+    //     $state = $this->pdo->query($sql);
+    //     return $state->fetch();
+    // }
 
 
     public function FetchProductProductPage(){
