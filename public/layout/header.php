@@ -1,28 +1,4 @@
-<?
-$products="";
-
-/* echo "<pre>";
-print_r($_SESSION['email']);
-echo "</pre>";  */
-
-if(isset($_POST['matchProduct'])) {
-
-    $search = $_POST['product'];
-    $param = "%$search%";
-   
-   
-    $sql = "SELECT * FROM products WHERE title LIKE :title ORDER BY id ";
-
-
-    $state = $pdo->prepare($sql);
-    $state->bindParam(":title", $param);
-    $state->execute();
-    $products = $state->fetchALL();
-
-        $data = [
-            'products' => $products
-        ];
-}
+<?php
 
 if(!isset($_SESSION['cartItems'])) {
         $_SESSION['cartItems'] = [];
@@ -35,6 +11,15 @@ if(!isset($_SESSION['cartItems'])) {
         $cartItemCount += $cartItem['quantity'];
     }
 ?>
+<html>
+<head>
+<title>Search</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<style>
+
+</style>
+</head>
+</html>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -51,7 +36,7 @@ if(!isset($_SESSION['cartItems'])) {
 
           <a href="./mypage.php"><ion-icon name="person-outline" class="icon"></ion-icon></a>    
           
-          <?php  if (isset($_SESSION['email'])): ?>
+          <?php if( $_SESSION['email']): ?>
               <a href="./logout.php"><ion-icon  name="log-out-outline" class="icon"></ion-icon></a>
           <?php else: ?>
               <a href="./login.php"><ion-icon  name="log-in-outline" class="icon"></ion-icon></a>
@@ -92,11 +77,12 @@ if(!isset($_SESSION['cartItems'])) {
 
                     </div>
           <a type="button" class="" data-toggle="modal" 
-                    data-target="#updateModal"data-id="<?=htmlentities($product['id'])?>"  data-title="<?=htmlentities($key['title'])?>"  
+                    data-target="#updateModal" data-id="<?=htmlentities($product['id'])?>" data-title="<?=htmlentities($key['title'])?>"  
                     data-description="<?=htmlentities($product['description'])?>" 
                     data-stock="<?=htmlentities($product['stock'])?>" 
                     data-price="<?=htmlentities($product['price'])?>"><ion-icon  name="search-outline" class="icon"></ion-icon></a>
         </div>
+        <div>       
 
         <div class="logo-img">
         <a href="./index.php"><img src="./img/LOGOwithoutcircle.png" alt="" width ="350px" height="200px"></a>
@@ -110,19 +96,21 @@ if(!isset($_SESSION['cartItems'])) {
         <div class="modal-content search-header">
           <div class="modal-header" >
             <legend>Search for a product </legend>
+            <button type="button" class="search-button" data-dismiss="modal">Close</button>
           </div>
   
 
     
     <form id="search-form"  method="POST">
-        <input type="text" placeholder="Enter product name" name="product"/></br><br>
-        <div><button type="submit"  class="button" name="matchProduct">Submit</button></div>
-        <div id="submitSearch"  class="search-div"></div>
+      <br>
+    <input type="text" placeholder="Enter product name" name="products" id="search"/></br><br>
     </form><br>
+    <div id="show_up">
+
+    </div>
 
     <form>  
     <div class="modal-footer">
-        <button type="button" class="button" data-dismiss="modal">Close</button>
     </div>
     </form>
   </div>
@@ -157,13 +145,29 @@ window.onclick = function(e) {
   }
 }
 </script>
+<script>
+$(document).ready(function(e){
+    $("#search").keyup(function(){
+        $("#show_up").show();
+        var text = $(this).val();
+        $.ajax({
+            type: 'GET',
+            url: 'search.php',
+            data: 'txt=' + text,
+            success: function(data){
+                $("#show_up").html(data);
+            }
+        });
+    })
+});
+
+</script>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.1.1.min.js">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-<script src="./jssearch.js"></script>
