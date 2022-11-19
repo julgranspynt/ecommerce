@@ -17,7 +17,6 @@ foreach ($cartItems as $cartId => $cartItem) {
 unset($_SESSION['cartItems']);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
